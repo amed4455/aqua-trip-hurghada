@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pharoah — Real Estate on the Red Sea</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site" id="siteHeader">
+    <div class="wrap nav-row">
+      <a href="#home" class="brand">
+        <span class="brand-mark">P</span>
+        <span class="brand-name">Pharoah</span>
+      </a>
+
+      <nav class="links" id="navLinks">
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#areas" data-i18n="navAreas">Areas</a>
+        <a href="#listings" data-i18n="navListings">Listings</a>
+        <a href="#gallery" data-i18n="navGallery">Gallery</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+
+        <div class="lang-switcher" id="langSwitcher">
+          <button type="button" class="lang-current" id="langCurrent">
+            <span class="lang-flag">🇬🇧</span>
+            <span class="lang-code">EN</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="lang-menu" id="langMenu"></div>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="device-toggle" role="group" aria-label="Preview mode">
+          <button type="button" class="device-btn active" id="btnDesktop" aria-pressed="true" aria-label="Desktop preview">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+          <button type="button" class="device-btn" id="btnMobile" aria-pressed="false" aria-label="Mobile preview">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+          </button>
+        </div>
+
+        <a href="#contact" class="btn btn-coral" data-i18n="getInTouch">Get In Touch</a>
+
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-inner">
+        <h1>
+          <span data-i18n="heroLine1">Best real estate deals</span><br>
+          <span data-i18n="heroLine2Pre">on the</span> <em data-i18n="heroHighlight">Red Sea</em>
+        </h1>
+        <p data-i18n="heroSubtitle">Pharoah connects you with vetted apartments, chalets and villas across Hurghada — with clear pricing, local know-how, and support that continues after you get the keys.</p>
+        <div class="hero-cta">
+          <a href="#about" class="btn btn-outline" data-i18n="heroBtnAbout">About us</a>
+          <a href="#listings" class="btn btn-coral" data-i18n="heroBtnListings">Our Listings</a>
+        </div>
+      </div>
+
+      <div class="wrap search-bar">
+        <form class="search-card" id="searchForm">
+          <div class="search-field">
+            <label for="fArea" data-i18n="labelArea">Area</label>
+            <select id="fArea">
+              <option>Sakkala</option>
+              <option>El Ahyaa</option>
+              <option>Sahl Hasheesh</option>
+              <option>El Gouna</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="fType" data-i18n="labelType">Property Type</label>
+            <select id="fType">
+              <option>Apartment</option>
+              <option>Chalet</option>
+              <option>Villa</option>
+              <option>Studio</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="fStatus" data-i18n="labelStatus">Status</label>
+            <select id="fStatus">
+              <option data-i18n="statusForSale">For Sale</option>
+              <option data-i18n="statusForRent">For Rent</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="fBeds" data-i18n="labelBeds">Bedrooms</label>
+            <select id="fBeds">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4+</option>
+            </select>
+          </div>
+          <div class="search-submit">
+            <button type="submit" class="btn btn-teal" data-i18n="searchBtn">Search Listings</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap section-title reveal">
+        <span class="eyebrow" data-i18n="aboutEyebrow">About Pharoah</span>
+        <h2 data-i18n="aboutHeading">Local expertise on the Red Sea coast</h2>
+        <p data-i18n="aboutText">We're a Hurghada-based advisory helping buyers and renters find the right unit — with honest pricing, legal follow-up, and rental management after handover.</p>
+        <div class="rule"></div>
+      </div>
+    </section>
+
+    <section id="areas" class="alt">
+      <div class="wrap">
+        <div class="section-title reveal">
+          <span class="eyebrow" data-i18n="areasEyebrow">Explore</span>
+          <h2 data-i18n="areasHeading">Browse by area</h2>
+          <p data-i18n="areasSubtitle">Four coastal neighborhoods on Hurghada's Red Sea coast — each with its own character.</p>
+          <div class="rule"></div>
+        </div>
+
+        <div class="area-grid">
+          <a href="#listings" class="area-card reveal" style="background-image:url('images/sakkala.jpg')">
+            <div class="area-card-body">
+              <h4>Sakkala</h4>
+              <p>Marina-front living close to restaurants and the promenade.</p>
+              <span class="area-card-link" data-i18n="areaViewListings">View Listings</span>
+            </div>
+          </a>
+          <a href="#listings" class="area-card reveal" style="background-image:url('images/788049168.jpg')">
+            <div class="area-card-body">
+              <h4>El Ahyaa</h4>
+              <p>Quiet residential compounds with pools, popular with families.</p>
+              <span class="area-card-link" data-i18n="areaViewListings">View Listings</span>
+            </div>
+          </a>
+          <a href="#listings" class="area-card reveal" style="background-image:url('images/sahl-hasheesh.jpg')">
+            <div class="area-card-body">
+              <h4>Sahl Hasheesh</h4>
+              <p>Gated resort-style villas minutes from the beach promenade.</p>
+              <span class="area-card-link" data-i18n="areaViewListings">View Listings</span>
+            </div>
+          </a>
+          <a href="#listings" class="area-card reveal" style="background-image:url('images/gouna.avif')">
+            <div class="area-card-body">
+              <h4>El Gouna</h4>
+              <p>Lagoon-side apartments in Egypt's most walkable resort town.</p>
+              <span class="area-card-link" data-i18n="areaViewListings">View Listings</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="listings">
+      <div class="wrap">
+        <div class="section-title reveal">
+          <span class="eyebrow" data-i18n="listingsEyebrow">Listings</span>
+          <h2 data-i18n="listingsForSale">Latest for Sale</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="listing-grid">
+          <article class="listing-card la1 reveal">
+            <div class="listing-art"><span class="status" data-i18n="statusForSale">For Sale</span></div>
+            <div class="listing-stats">
+              <span>🛏 2 Beds</span><span>🛁 2 Baths</span><span>📐 110 m²</span>
+            </div>
+            <div class="listing-body">
+              <h4>Sakkala Seafront Apartment</h4>
+              <p>Modern 2-bedroom apartment steps from the marina, with a full sea view and covered parking.</p>
+            </div>
+            <div class="listing-foot">
+              <span class="listing-price">$95,000</span>
+              <span class="listing-stars">★★★★★</span>
+            </div>
+          </article>
+
+          <article class="listing-card la2 reveal">
+            <div class="listing-art"><span class="status" data-i18n="statusForSale">For Sale</span></div>
+            <div class="listing-stats">
+              <span>🛏 3 Beds</span><span>🛁 2 Baths</span><span>📐 145 m²</span>
+            </div>
+            <div class="listing-body">
+              <h4>New Phase Off-Plan Unit</h4>
+              <p>Under-construction 3-bedroom unit in a gated compound, flexible payment plan direct from developer.</p>
+            </div>
+            <div class="listing-foot">
+              <span class="listing-price">$118,000</span>
+              <span class="listing-stars">★★★★☆</span>
+            </div>
+          </article>
+
+          <article class="listing-card la3 reveal">
+            <div class="listing-art"><span class="status" data-i18n="statusForSale">For Sale</span></div>
+            <div class="listing-stats">
+              <span>🛏 4 Beds</span><span>🛁 3 Baths</span><span>📐 220 m²</span>
+            </div>
+            <div class="listing-body">
+              <h4>Sahl Hasheesh Villa</h4>
+              <p>Standalone villa with private garden and shared pool access, minutes from the beach promenade.</p>
+            </div>
+            <div class="listing-foot">
+              <span class="listing-price">$260,000</span>
+              <span class="listing-stars">★★★★★</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-title reveal" style="margin-top:56px;">
+          <h2 data-i18n="listingsForRent">Latest for Rent</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="listing-grid">
+          <article class="listing-card la4 reveal">
+            <div class="listing-art rent"><span class="status" data-i18n="statusForRent">For Rent</span></div>
+            <div class="listing-stats">
+              <span>🛏 1 Bed</span><span>🛁 1 Bath</span><span>📐 65 m²</span>
+            </div>
+            <div class="listing-body">
+              <h4>El Ahyaa Furnished Studio</h4>
+              <p>Fully furnished studio with balcony, ideal for short-term stays or seasonal renters.</p>
+            </div>
+            <div class="listing-foot">
+              <span class="listing-price">$320 / mo</span>
+              <span class="listing-stars">★★★★☆</span>
+            </div>
+          </article>
+
+          <article class="listing-card la5 reveal">
+            <div class="listing-art rent"><span class="status" data-i18n="statusForRent">For Rent</span></div>
+            <div class="listing-stats">
+              <span>🛏 2 Beds</span><span>🛁 2 Baths</span><span>📐 100 m²</span>
+            </div>
+            <div class="listing-body">
+              <h4>Marina View Chalet</h4>
+              <p>Seasonal chalet with shared pool and direct marina views, available for monthly or yearly rent.</p>
+            </div>
+            <div class="listing-foot">
+              <span class="listing-price">$450 / mo</span>
+              <span class="listing-stars">★★★★★</span>
+            </div>
+          </article>
+
+          <article class="listing-card la6 reveal">
+            <div class="listing-art rent"><span class="status" data-i18n="statusForRent">For Rent</span></div>
+            <div class="listing-stats">
+              <span>🛏 3 Beds</span><span>🛁 2 Baths</span><span>📐 160 m²</span>
+            </div>
+            <div class="listing-body">
+              <h4>El Gouna Family Apartment</h4>
+              <p>Spacious family apartment near the lagoon, long-term lease with maintenance included.</p>
+            </div>
+            <div class="listing-foot">
+              <span class="listing-price">$600 / mo</span>
+              <span class="listing-stars">★★★★☆</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="alt">
+      <div class="wrap">
+        <div class="section-title reveal">
+          <span class="eyebrow" data-i18n="galleryEyebrow">Gallery</span>
+          <h2 data-i18n="galleryHeading">Inside the units</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="filters">
+          <button type="button" class="filter-btn active" data-filter="all" data-i18n="filterAll">All</button>
+          <button type="button" class="filter-btn" data-filter="living" data-i18n="filterLiving">Living Room</button>
+          <button type="button" class="filter-btn" data-filter="bedroom" data-i18n="filterBedroom">Bedroom</button>
+          <button type="button" class="filter-btn" data-filter="kitchen" data-i18n="filterKitchen">Kitchen</button>
+          <button type="button" class="filter-btn" data-filter="pool" data-i18n="filterPool">Pool</button>
+          <button type="button" class="filter-btn" data-filter="exterior" data-i18n="filterExterior">Exterior</button>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item g1 reveal" data-cat="living"><span data-i18n="galleryLiving">Living Room</span></div>
+          <div class="gallery-item g2 reveal" data-cat="bedroom"><span data-i18n="galleryBedroom">Master Bedroom</span></div>
+          <div class="gallery-item g3 reveal" data-cat="kitchen"><span data-i18n="galleryKitchen">Open Kitchen</span></div>
+          <div class="gallery-item g4 reveal" data-cat="pool"><span data-i18n="galleryPool">Shared Pool</span></div>
+          <div class="gallery-item g5 reveal" data-cat="exterior"><span data-i18n="galleryExterior">Building Exterior</span></div>
+          <div class="gallery-item g6 reveal" data-cat="living"><span data-i18n="galleryLounge">Sea-View Lounge</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="value-strip">
+      <div class="wrap">
+        <div class="value-slide active">
+          <div class="mark">"</div>
+          <p>Pharoah found us a seafront apartment within our budget and handled every paper — from reservation to handover — without a single surprise.</p>
+          <span>Mostafa &amp; Heba — Sakkala</span>
+        </div>
+        <div class="value-slide">
+          <div class="mark">"</div>
+          <p>We rented out our chalet through their management team and haven't had to think about it since. Payments arrive on time, every time.</p>
+          <span>Karim S. — El Gouna</span>
+        </div>
+        <div class="value-slide">
+          <div class="mark">"</div>
+          <p>Clear pricing, no pressure, and a team that actually answers on WhatsApp. Bought our first villa here with total confidence.</p>
+          <span>Julia R. — Sahl Hasheesh</span>
+        </div>
+        <div class="value-dots">
+          <button type="button" class="active" data-i="0" aria-label="Slide 1"></button>
+          <button type="button" data-i="1" aria-label="Slide 2"></button>
+          <button type="button" data-i="2" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="wrap">
+        <div class="partners-row reveal">
+          <span class="partner-mark">COASTLINE GROUP</span>
+          <span class="partner-mark">REDSEA REALTY</span>
+          <span class="partner-mark">SEAVIEW HOMES</span>
+          <span class="partner-mark">MARINA ESTATES</span>
+        </div>
+        <div class="signup reveal">
+          <h3 data-i18n="newsletterHeading">Get new listings before they're public</h3>
+          <form class="signup-form" id="newsForm">
+            <input type="email" required placeholder="Enter your email" data-i18n-placeholder="newsletterPlaceholder" />
+            <button type="submit" class="btn btn-coral" data-i18n="newsletterBtn">Subscribe</button>
+          </form>
+          <p class="signup-msg" id="newsMsg" data-i18n="newsletterThanks">Thanks — you're on the list.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap">
+        <div class="section-title reveal">
+          <span class="eyebrow">Blog</span>
+          <h2>Notes from the coast</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card reveal">
+            <div class="blog-art b1"><div class="blog-date"><b>12</b><span>Mar</span></div></div>
+            <div class="blog-body">
+              <h3>What to check before buying off-plan in Hurghada</h3>
+              <p>A quick checklist for verifying developer licenses, payment plans, and delivery timelines.</p>
+            </div>
+          </article>
+          <article class="blog-card reveal">
+            <div class="blog-art b2"><div class="blog-date"><b>28</b><span>Feb</span></div></div>
+            <div class="blog-body">
+              <h3>Rental yields across Sakkala, El Ahyaa and El Gouna</h3>
+              <p>How seasonal demand shifts return rates across the three most requested areas.</p>
+            </div>
+          </article>
+          <article class="blog-card reveal">
+            <div class="blog-art b3"><div class="blog-date"><b>05</b><span>Feb</span></div></div>
+            <div class="blog-body">
+              <h3>Foreign ownership rules, explained simply</h3>
+              <p>What non-Egyptian buyers need in place before signing a reservation contract.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-title reveal">
+          <span class="eyebrow" data-i18n="contactEyebrow">Contact</span>
+          <h2 data-i18n="contactHeading">Get in touch</h2>
+          <div class="rule"></div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <div class="contact-field">
+            <label for="cName" data-i18n="labelName">Name</label>
+            <input type="text" id="cName" required />
+          </div>
+          <div class="contact-field">
+            <label for="cPhone" data-i18n="labelPhone">Phone Number</label>
+            <input type="tel" id="cPhone" data-i18n-placeholder="phonePlaceholder" placeholder="e.g. 201xxxxxxxxx" required />
+          </div>
+          <div class="contact-field contact-field-full">
+            <label for="cMessage" data-i18n="labelMessage">Message</label>
+            <textarea id="cMessage" rows="4" required></textarea>
+          </div>
+          <div class="contact-field-full">
+            <button type="submit" class="btn btn-coral" data-i18n="submitBtn">Send via WhatsApp</button>
+          </div>
+        </form>
+        <p class="contact-status" id="contactStatus"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-mark">P</span>
+          <span class="brand-name" style="color:#fff;">Pharoah</span>
+        </div>
+        <p data-i18n="footerTagline">Real estate advisory specialized in Hurghada and the Red Sea coast — listings, legal follow-up, and rental management in one place.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footerContact">Contact Us</h4>
+        <ul>
+          <li>📍 Sakkala, Hurghada, Egypt</li>
+          <li>📞 +20 100 000 0000</li>
+          <li>✉️ info@pharoah-realestate.com</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footerQuickLinks">Quick Links</h4>
+        <ul>
+          <li><a href="#about" data-i18n="linkAboutUs">About Us</a></li>
+          <li><a href="#listings" data-i18n="linkListings">Listings</a></li>
+          <li><a href="#gallery" data-i18n="linkGallery">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footerWhyUs">Why Choose Us</h4>
+        <ul>
+          <li data-i18n="whyPricing">Direct Developer Pricing</li>
+          <li data-i18n="whyLegal">Legal Follow-Up</li>
+          <li data-i18n="whyRental">Rental Management</li>
+          <li data-i18n="whyContact">Contact Us</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 Pharoah. All rights reserved.</span>
+      <span>Hurghada, Egypt</span>
+    </div>
+  </footer>
+
+  <a
+    id="whatsappFloatBtn"
+    class="whatsapp-float"
+    href="#"
+    target="_blank"
+    rel="noopener"
+    data-i18n-aria="whatsappAria"
+    aria-label="Contact via WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" width="32" height="32" fill="white">
+      <path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.5-.3-.4C5.3 17.8 4.7 16 4.7 15c0-6.2 5.1-11.3 11.3-11.3S27.3 8.8 27.3 15 22.2 24.8 16 24.8zm6.2-8.4c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.8-1.9-1.1-2.6-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.3 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 2-.8 2.2-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/>
+    </svg>
+  </a>
+
+  <div class="device-overlay" id="deviceOverlay">
+    <div class="device-frame">
+      <div class="device-notch"></div>
+      <iframe id="deviceFrame" title="Mobile preview" src="about:blank"></iframe>
+      <button type="button" class="device-close" id="deviceClose" aria-label="Close preview">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
