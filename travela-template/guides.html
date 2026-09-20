@@ -66,6 +66,27 @@
                             </div>
                         </div>
                     </div>
+                    <div class="nav-extra-controls">
+                        <div class="lang-switcher" id="langSwitcher">
+                            <button type="button" class="lang-current" id="langCurrent">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-code">EN</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="lang-menu" id="langMenu">
+                                <button type="button" data-lang="en"><span>🇬🇧</span> English</button>
+                                <button type="button" data-lang="ar"><span>🇪🇬</span> العربية</button>
+                            </div>
+                        </div>
+                        <div class="device-toggle" role="group" aria-label="Preview mode">
+                            <button type="button" class="device-btn active" id="btnDesktop" aria-pressed="true" aria-label="Desktop preview">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                            </button>
+                            <button type="button" class="device-btn" id="btnMobile" aria-pressed="false" aria-label="Mobile preview">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -342,6 +363,15 @@
         </div>
         <!-- Copyright End -->
 
+        <!-- Device Preview Overlay -->
+        <div class="device-overlay" id="deviceOverlay">
+            <div class="device-frame">
+                <div class="device-notch"></div>
+                <button type="button" class="device-close" id="deviceClose" aria-label="Close preview"><i class="fa fa-times"></i></button>
+                <iframe id="deviceFrame" title="Mobile preview" src="about:blank"></iframe>
+            </div>
+        </div>
+
         <!-- WhatsApp Float -->
         <a href="https://wa.me/201008933302" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
@@ -360,6 +390,7 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script src="js/enhancements.js"></script>
     </body>
 
 </html>

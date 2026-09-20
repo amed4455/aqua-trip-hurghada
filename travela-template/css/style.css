@@ -55,6 +55,167 @@
     font-size: 30px;
 }
 
+/*** Nav Extra Controls (Language + Device Preview) ***/
+.nav-extra-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-inline-start: 16px;
+    vertical-align: middle;
+}
+
+.lang-switcher {
+    position: relative;
+}
+
+.lang-current {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+
+.lang-current svg {
+    transition: transform 0.2s ease;
+}
+
+.lang-switcher.open .lang-current svg {
+    transform: rotate(180deg);
+}
+
+.lang-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 30px -12px rgba(20, 20, 31, 0.25);
+    padding: 6px;
+    min-width: 150px;
+    display: none;
+    z-index: 1050;
+}
+
+.lang-switcher.open .lang-menu {
+    display: block;
+}
+
+.lang-menu button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 9px 10px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    text-align: left;
+    cursor: pointer;
+    color: #14141F;
+    font-family: "Roboto", sans-serif;
+}
+
+.lang-menu button:hover {
+    background: #F2F2F2;
+}
+
+.device-toggle {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.device-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    border-radius: 999px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.device-btn.active {
+    background: #fff;
+    color: #13357B;
+}
+
+.device-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 14, 30, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.device-overlay.open {
+    display: flex;
+}
+
+.device-frame {
+    position: relative;
+    width: 375px;
+    height: 720px;
+    max-height: 90vh;
+    background: #14141F;
+    border-radius: 36px;
+    padding: 14px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.device-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 24px;
+    background: #fff;
+}
+
+.device-notch {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 18px;
+    background: #14141F;
+    border-radius: 0 0 14px 14px;
+    z-index: 2;
+}
+
+.device-close {
+    position: absolute;
+    top: -46px;
+    right: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #14141F;
+}
+
 /*** Button Start ***/
 .btn {
     font-weight: 600;
