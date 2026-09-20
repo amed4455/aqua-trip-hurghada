@@ -1,141 +1,140 @@
 (function () {
     "use strict";
 
-    /* ---------- Arabic dictionary (English text -> Arabic) ---------- */
-    var AR = {
-        // Topbar
-        "Register": "تسجيل",
-        "Login": "دخول",
-        "My Dashboard": "لوحة التحكم",
-        "My Profile": "الملف الشخصي",
-        "Inbox": "الرسائل",
-        "Notifications": "الإشعارات",
-        "Account Settings": "إعدادات الحساب",
-        "Log Out": "تسجيل خروج",
+    /* ---------- Multi-language dictionary (English text -> translation) ---------- */
+    var KEYS = [
+        ["Register", "Registro", "Регистрация", "Registrieren", "Registrácia", "Registrar", "تسجيل"],
+        ["Login", "Iniciar sesión", "Вход", "Anmelden", "Prihlásenie", "Entrar", "دخول"],
+        ["My Dashboard", "Mi Panel", "Личный кабинет", "Mein Dashboard", "Môj Panel", "Meu Painel", "لوحة التحكم"],
+        ["My Profile", "Mi Perfil", "Мой профиль", "Mein Profil", "Môj Profil", "Meu Perfil", "الملف الشخصي"],
+        ["Inbox", "Bandeja de entrada", "Сообщения", "Posteingang", "Správy", "Mensagens", "الرسائل"],
+        ["Notifications", "Notificaciones", "Уведомления", "Benachrichtigungen", "Upozornenia", "Notificações", "الإشعارات"],
+        ["Account Settings", "Configuración de la cuenta", "Настройки аккаунта", "Kontoeinstellungen", "Nastavenia Účtu", "Configurações Da Conta", "إعدادات الحساب"],
+        ["Log Out", "Cerrar sesión", "Выйти", "Abmelden", "Odhlásiť Sa", "Sair", "تسجيل خروج"],
 
-        // Navbar
-        "Home": "الرئيسية",
-        "About": "من نحن",
-        "Services": "خدماتنا",
-        "Packages": "الباقات",
-        "Blog": "المدونة",
-        "Pages": "صفحات",
-        "Destination": "الوجهات",
-        "Explore Tour": "استكشف الجولة",
-        "Travel Booking": "حجز الرحلة",
-        "Our Gallery": "معرض الصور",
-        "Travel Guides": "مرشدين السياحة",
-        "Testimonial": "آراء العملاء",
-        "404 Page": "صفحة 404",
-        "Contact": "تواصل معنا",
-        "Book Now": "احجز الآن",
+        ["Home", "Inicio", "Главная", "Startseite", "Domov", "Início", "الرئيسية"],
+        ["About", "Nosotros", "О нас", "Über uns", "O Nás", "Sobre", "من نحن"],
+        ["Services", "Servicios", "Услуги", "Leistungen", "Služby", "Serviços", "خدماتنا"],
+        ["Packages", "Paquetes", "Пакеты", "Pakete", "Balíky", "Pacotes", "الباقات"],
+        ["Blog", "Blog", "Блог", "Blog", "Blog", "Blog", "المدونة"],
+        ["Pages", "Páginas", "Страницы", "Seiten", "Stránky", "Páginas", "صفحات"],
+        ["Destination", "Destino", "Направление", "Reiseziel", "Destinácia", "Destino", "الوجهات"],
+        ["Explore Tour", "Explorar Tour", "Исследовать Тур", "Tour Entdecken", "Preskúmať Zájazd", "Explorar Passeio", "استكشف الجولة"],
+        ["Travel Booking", "Reserva de Viaje", "Бронирование Поездки", "Reisebuchung", "Rezervácia Cesty", "Reserva de Viagem", "حجز الرحلة"],
+        ["Our Gallery", "Nuestra Galería", "Наша Галерея", "Unsere Galerie", "Naša Galéria", "Nossa Galeria", "معرض الصور"],
+        ["Travel Guides", "Guías de Viaje", "Гиды По Путешествиям", "Reiseführer", "Sprievodcovia", "Guias de Viagem", "مرشدين السياحة"],
+        ["Testimonial", "Testimonios", "Отзывы", "Erfahrungsberichte", "Referencie", "Depoimentos", "آراء العملاء"],
+        ["404 Page", "Página 404", "Страница 404", "404-Seite", "Stránka 404", "Página 404", "صفحة 404"],
+        ["Contact", "Contacto", "Контакты", "Kontakt", "Kontakt", "Contato", "تواصل معنا"],
+        ["Book Now", "Reservar Ahora", "Забронировать", "Jetzt Buchen", "Rezervovať Teraz", "Reservar Agora", "احجز الآن"],
 
-        // Hero / carousel
-        "Explore The World": "استكشف العالم",
-        "Let's The World Together!": "لنكتشف العالم معًا!",
-        "Find Your Perfect Tour At Travel": "اكتشف رحلتك المثالية",
-        "You Like To Go?": "عايز تسافر فين؟",
-        "Discover Now": "اكتشف الآن",
-        "Search": "بحث",
-        "The World": "العالم",
-        "Eg: Thailand": "مثال: تايلاند",
+        ["Explore The World", "Explora El Mundo", "Исследуй Мир", "Entdecke Die Welt", "Objavuj Svet", "Explore O Mundo", "استكشف العالم"],
+        ["Let's The World Together!", "¡Descubramos El Mundo Juntos!", "Откроем Мир Вместе!", "Lass Uns Die Welt Gemeinsam Entdecken!", "Poďme Spoznávať Svet Spolu!", "Vamos Descobrir O Mundo Juntos!", "لنكتشف العالم معًا!"],
+        ["Find Your Perfect Tour At Travel", "Encuentra Tu Tour Perfecto", "Найдите Свой Идеальный Тур", "Finde Deine Perfekte Tour", "Nájdite Svoj Dokonalý Zájazd", "Encontre Seu Passeio Perfeito", "اكتشف رحلتك المثالية"],
+        ["You Like To Go?", "¿A Dónde Quieres Ir?", "Куда Хотите Поехать?", "Wohin Möchtest Du Reisen?", "Kam Chcete Ísť?", "Para Onde Você Quer Ir?", "عايز تسافر فين؟"],
+        ["Discover Now", "Descubrir Ahora", "Открыть Сейчас", "Jetzt Entdecken", "Objaviť Teraz", "Descobrir Agora", "اكتشف الآن"],
+        ["Search", "Buscar", "Поиск", "Suchen", "Hľadať", "Buscar", "بحث"],
+        ["The World", "El Mundo", "Мир", "Die Welt", "Svet", "O Mundo", "العالم"],
+        ["Eg: Thailand", "Ej: Tailandia", "Напр: Таиланд", "Z. B.: Thailand", "Napr: Thajsko", "Ex: Tailândia", "مثال: تايلاند"],
 
-        // About
-        "About Us": "من نحن",
-        "Welcome to": "أهلاً بيك في",
-        "First Class Flights": "رحلات درجة أولى",
-        "Handpicked Hotels": "فنادق مختارة بعناية",
-        "5 Star Accommodations": "إقامة 5 نجوم",
-        "Latest Model Vehicles": "أحدث موديلات السيارات",
-        "150 Premium City Tours": "150 جولة مميزة",
-        "24/7 Service": "خدمة على مدار الساعة",
+        ["About Us", "Nosotros", "О Нас", "Über Uns", "O Nás", "Sobre Nós", "من نحن"],
+        ["Welcome to", "Bienvenido a", "Добро пожаловать в", "Willkommen bei", "Vitajte v", "Bem-vindo a", "أهلاً بيك في"],
+        ["First Class Flights", "Vuelos de Primera Clase", "Перелёты Первым Классом", "Flüge Erster Klasse", "Lety Prvou Triedou", "Voos De Primeira Classe", "رحلات درجة أولى"],
+        ["Handpicked Hotels", "Hoteles Selectos", "Отобранные Отели", "Sorgfältig Ausgewählte Hotels", "Starostlivo Vybrané Hotely", "Hotéis Selecionados", "فنادق مختارة بعناية"],
+        ["5 Star Accommodations", "Alojamiento 5 Estrellas", "Проживание 5 Звёзд", "5-Sterne-Unterkünfte", "5-Hviezdičkové Ubytovanie", "Hospedagem 5 Estrelas", "إقامة 5 نجوم"],
+        ["Latest Model Vehicles", "Vehículos de Último Modelo", "Новейшие Модели Автомобилей", "Neueste Fahrzeugmodelle", "Najnovšie Modely Vozidiel", "Veículos De Último Modelo", "أحدث موديلات السيارات"],
+        ["150 Premium City Tours", "150 Tours Urbanos Premium", "150 Премиальных Городских Туров", "150 Premium-Stadttouren", "150 Prémiových Mestských Zájazdov", "150 Passeios Urbanos Premium", "150 جولة مميزة"],
+        ["24/7 Service", "Servicio 24/7", "Сервис Круглосуточно", "Rund-Um-Die-Uhr-Service", "Nepretržitý Servis", "Atendimento 24 Horas", "خدمة على مدار الساعة"],
 
-        // Services
-        "Searvices": "خدماتنا",
-        "Our Services": "خدماتنا",
-        "Event Management": "إدارة الفعاليات",
-        "Travel Guide": "دليل السفر",
-        "Meet Our Guide": "تعرف على مرشدينا",
-        "Our Travel Guides": "مرشدينا السياحيين",
+        ["Searvices", "Servicios", "Услуги", "Leistungen", "Služby", "Serviços", "خدماتنا"],
+        ["Our Services", "Nuestros Servicios", "Наши Услуги", "Unsere Leistungen", "Naše Služby", "Nossos Serviços", "خدماتنا"],
+        ["Event Management", "Gestión de Eventos", "Организация Мероприятий", "Eventmanagement", "Manažment Podujatí", "Gestão De Eventos", "إدارة الفعاليات"],
+        ["Travel Guide", "Guía de Viaje", "Гид По Путешествиям", "Reiseführer", "Sprievodca", "Guia De Viagem", "دليل السفر"],
+        ["Meet Our Guide", "Conoce a Nuestro Guía", "Познакомьтесь С Нашим Гидом", "Lernen Sie Unseren Guide Kennen", "Spoznajte Nášho Sprievodcu", "Conheça Nosso Guia", "تعرف على مرشدينا"],
+        ["Our Travel Guides", "Nuestros Guías de Viaje", "Наши Гиды", "Unsere Reiseführer", "Naši Sprievodcovia", "Nossos Guias De Viagem", "مرشدينا السياحيين"],
 
-        // Destination
-        "Popular Destination": "أشهر الوجهات",
-        "Travel Destination": "وجهات السفر",
-        "Tour Category": "تصنيف الجولات",
+        ["Popular Destination", "Destino Popular", "Популярное Направление", "Beliebtes Reiseziel", "Obľúbená Destinácia", "Destino Popular", "أشهر الوجهات"],
+        ["Travel Destination", "Destino de Viaje", "Направление Поездки", "Reiseziel", "Cieľová Destinácia", "Destino De Viagem", "وجهات السفر"],
+        ["Tour Category", "Categoría de Tour", "Категория Тура", "Tour-Kategorie", "Kategória Zájazdu", "Categoria Do Passeio", "تصنيف الجولات"],
 
-        // Packages
-        "Awesome Packages": "باقات رائعة",
-        "Travel Packages": "باقات السفر",
-        "WorldWide Tours": "جولات حول العالم",
+        ["Awesome Packages", "Paquetes Increíbles", "Отличные Пакеты", "Tolle Pakete", "Skvelé Balíky", "Pacotes Incríveis", "باقات رائعة"],
+        ["Travel Packages", "Paquetes de Viaje", "Туристические Пакеты", "Reisepakete", "Cestovné Balíky", "Pacotes De Viagem", "باقات السفر"],
+        ["WorldWide Tours", "Tours Mundiales", "Туры По Всему Миру", "Weltweite Touren", "Zájazdy Po Celom Svete", "Passeios Pelo Mundo", "جولات حول العالم"],
 
-        // Gallery
-        "Tourism & Traveling Gallery.": "معرض السياحة والسفر.",
-        "20 Photos": "20 صورة",
+        ["Tourism & Traveling Gallery.", "Galería de Turismo y Viajes.", "Галерея Туризма И Путешествий.", "Tourismus- Und Reisegalerie.", "Galéria Cestovania A Turistiky.", "Galeria De Turismo E Viagens.", "معرض السياحة والسفر."],
+        ["20 Photos", "20 Fotos", "20 Фото", "20 Fotos", "20 Fotografií", "20 Fotos", "20 صورة"],
 
-        // Testimonial
-        "Our Testimonial": "آراء عملائنا",
-        "Our Clients Say!!!": "ماذا يقول عملاؤنا!!!",
+        ["Our Testimonial", "Nuestros Testimonios", "Наши Отзывы", "Unsere Erfahrungsberichte", "Naše Referencie", "Nossos Depoimentos", "آراء عملائنا"],
+        ["Our Clients Say!!!", "¡Lo Que Dicen Nuestros Clientes!!!", "Что Говорят Наши Клиенты!!!", "Das Sagen Unsere Kunden!!!", "Čo Hovoria Naši Klienti!!!", "O Que Nossos Clientes Dizem!!!", "ماذا يقول عملاؤنا!!!"],
 
-        // Blog
-        "Our Blog": "مدونتنا",
-        "Popular Travel Blogs": "أشهر مقالات السفر",
-        "Read More": "اقرأ المزيد",
+        ["Our Blog", "Nuestro Blog", "Наш Блог", "Unser Blog", "Náš Blog", "Nosso Blog", "مدونتنا"],
+        ["Popular Travel Blogs", "Blogs de Viaje Populares", "Популярные Блоги О Путешествиях", "Beliebte Reiseblogs", "Obľúbené Cestovateľské Blogy", "Blogs De Viagem Populares", "أشهر مقالات السفر"],
+        ["Read More", "Leer Más", "Читать Далее", "Weiterlesen", "Čítať Viac", "Leia Mais", "اقرأ المزيد"],
 
-        // Newsletter
-        "Subscribe": "اشترك",
-        "Our Newsletter": "نشرتنا الإخبارية",
+        ["Subscribe", "Suscribirse", "Подписаться", "Abonnieren", "Odoberať", "Inscrever-se", "اشترك"],
+        ["Our Newsletter", "Nuestro Boletín", "Наша Рассылка", "Unser Newsletter", "Náš Newsletter", "Nossa Newsletter", "نشرتنا الإخبارية"],
 
-        // Contact
-        "Contact Us": "تواصل معنا",
-        "Contact For Any Query": "تواصل معنا لأي استفسار",
-        "Send us a message": "ابعتلنا رسالة",
-        "Send Message": "إرسال الرسالة",
-        "WhatsApp": "واتساب",
-        "Email": "البريد الإلكتروني",
+        ["Contact Us", "Contáctanos", "Свяжитесь С Нами", "Kontaktiere Uns", "Kontaktujte Nás", "Fale Conosco", "تواصل معنا"],
+        ["Contact For Any Query", "Contáctanos Para Cualquier Consulta", "Свяжитесь С Нами По Любому Вопросу", "Kontaktiere Uns Bei Fragen", "Kontaktujte Nás S Akoukoľvek Otázkou", "Fale Conosco Para Qualquer Dúvida", "تواصل معنا لأي استفسار"],
+        ["Send us a message", "Envíanos un mensaje", "Отправьте нам сообщение", "Sende uns eine Nachricht", "Pošlite nám správu", "Envie-nos uma mensagem", "ابعتلنا رسالة"],
+        ["Send Message", "Enviar Mensaje", "Отправить Сообщение", "Nachricht Senden", "Odoslať Správu", "Enviar Mensagem", "إرسال الرسالة"],
+        ["WhatsApp", "WhatsApp", "WhatsApp", "WhatsApp", "WhatsApp", "WhatsApp", "واتساب"],
+        ["Email", "Correo Electrónico", "Эл. почта", "E-Mail", "E-mail", "E-mail", "البريد الإلكتروني"],
 
-        // Booking
-        "Online Booking": "حجز أونلاين",
-        "Book A Tour Deals": "احجز عرض رحلة",
-        "Persons": "عدد الأفراد",
-        "Categories": "التصنيفات",
-        "Date & Time": "التاريخ والوقت",
-        "Special Request": "طلب خاص",
-        "Kids": "أطفال",
+        ["Online Booking", "Reserva en Línea", "Онлайн Бронирование", "Online-Buchung", "Online Rezervácia", "Reserva Online", "حجز أونلاين"],
+        ["Book A Tour Deals", "Reserva Una Oferta de Tour", "Забронировать Тур Со Скидкой", "Buche Ein Tour-Angebot", "Rezervovať Zľavnený Zájazd", "Reserve Uma Oferta De Passeio", "احجز عرض رحلة"],
+        ["Persons", "Personas", "Человек", "Personen", "Osoby", "Pessoas", "عدد الأفراد"],
+        ["Categories", "Categorías", "Категории", "Kategorien", "Kategórie", "Categorias", "التصنيفات"],
+        ["Date & Time", "Fecha y Hora", "Дата И Время", "Datum Und Uhrzeit", "Dátum A Čas", "Data E Hora", "التاريخ والوقت"],
+        ["Special Request", "Solicitud Especial", "Особый Запрос", "Sonderwunsch", "Špeciálna Požiadavka", "Pedido Especial", "طلب خاص"],
+        ["Kids", "Niños", "Дети", "Kinder", "Deti", "Crianças", "أطفال"],
 
-        // 404
-        "Page Not Found": "الصفحة غير موجودة",
-        "Go Back To Home": "ارجع للرئيسية",
+        ["Page Not Found", "Página No Encontrada", "Страница Не Найдена", "Seite Nicht Gefunden", "Stránka Nenájdená", "Página Não Encontrada", "الصفحة غير موجودة"],
+        ["Go Back To Home", "Volver Al Inicio", "Вернуться На Главную", "Zurück Zur Startseite", "Späť Na Domovskú Stránku", "Voltar Ao Início", "ارجع للرئيسية"],
 
-        // Footer
-        "Get In Touch": "تواصل معنا",
-        "Company": "الشركة",
-        "Support": "الدعم",
-        "Careers": "وظائف",
-        "Press": "الصحافة",
-        "Gift Cards": "بطاقات هدايا",
-        "Magazine": "مجلة",
-        "Legal Notice": "إشعار قانوني",
-        "Privacy Policy": "سياسة الخصوصية",
-        "Terms and Conditions": "الشروط والأحكام",
-        "Sitemap": "خريطة الموقع",
-        "Cookie policy": "سياسة الكوكيز",
-        "Payments": "طرق الدفع",
+        ["Get In Touch", "Ponte en Contacto", "Связаться С Нами", "Kontakt Aufnehmen", "Spojte Sa S Nami", "Fale Conosco", "تواصل معنا"],
+        ["Company", "Empresa", "Компания", "Unternehmen", "Spoločnosť", "Empresa", "الشركة"],
+        ["Support", "Soporte", "Поддержка", "Support", "Podpora", "Suporte", "الدعم"],
+        ["Careers", "Carreras", "Карьера", "Karriere", "Kariéra", "Carreiras", "وظائف"],
+        ["Press", "Prensa", "Пресса", "Presse", "Tlač", "Imprensa", "الصحافة"],
+        ["Gift Cards", "Tarjetas de Regalo", "Подарочные Карты", "Geschenkkarten", "Darčekové Poukazy", "Cartões-Presente", "بطاقات هدايا"],
+        ["Magazine", "Revista", "Журнал", "Magazin", "Magazín", "Revista", "مجلة"],
+        ["Legal Notice", "Aviso Legal", "Правовая Информация", "Impressum", "Právne Upozornenie", "Aviso Legal", "إشعار قانوني"],
+        ["Privacy Policy", "Política de Privacidad", "Политика Конфиденциальности", "Datenschutzrichtlinie", "Zásady Ochrany Súkromia", "Política De Privacidade", "سياسة الخصوصية"],
+        ["Terms and Conditions", "Términos y Condiciones", "Условия Использования", "Allgemeine Geschäftsbedingungen", "Obchodné Podmienky", "Termos E Condições", "الشروط والأحكام"],
+        ["Sitemap", "Mapa del Sitio", "Карта Сайта", "Seitenübersicht", "Mapa Stránky", "Mapa Do Site", "خريطة الموقع"],
+        ["Cookie policy", "Política de Cookies", "Политика Cookie", "Cookie-Richtlinie", "Zásady Cookies", "Política De Cookies", "سياسة الكوكيز"],
+        ["Payments", "Pagos", "Платежи", "Zahlungen", "Platby", "Pagamentos", "طرق الدفع"],
 
-        // Forms
-        "Your Name": "اسمك",
-        "Your Email": "بريدك الإلكتروني",
-        "Your email": "بريدك الإلكتروني",
-        "Subject": "الموضوع",
-        "Message": "الرسالة",
-        "Leave a message here": "اكتب رسالتك هنا",
+        ["Your Name", "Tu Nombre", "Ваше Имя", "Ihr Name", "Vaše Meno", "Seu Nome", "اسمك"],
+        ["Your Email", "Tu Correo Electrónico", "Ваш Email", "Ihre E-Mail", "Váš E-mail", "Seu E-mail", "بريدك الإلكتروني"],
+        ["Your email", "Tu correo electrónico", "Ваш email", "Ihre E-Mail", "Váš e-mail", "seu e-mail", "بريدك الإلكتروني"],
+        ["Subject", "Asunto", "Тема", "Betreff", "Predmet", "Assunto", "الموضوع"],
+        ["Message", "Mensaje", "Сообщение", "Nachricht", "Správa", "Mensagem", "الرسالة"],
+        ["Leave a message here", "Deja un mensaje aquí", "Оставьте сообщение здесь", "Hinterlassen Sie hier eine Nachricht", "Nechajte tu správu", "Deixe uma mensagem aqui", "اكتب رسالتك هنا"],
 
-        // Aria labels / preview controls
-        "Preview mode": "وضع المعاينة",
-        "Desktop preview": "معاينة سطح المكتب",
-        "Mobile preview": "معاينة الموبايل",
-        "Close preview": "إغلاق المعاينة",
-        "Chat on WhatsApp": "تواصل عبر واتساب",
-    };
+        ["Preview mode", "Modo de Vista Previa", "Режим Просмотра", "Vorschaumodus", "Režim Náhľadu", "Modo De Visualização", "وضع المعاينة"],
+        ["Desktop preview", "Vista de Escritorio", "Просмотр На Компьютере", "Desktop-Vorschau", "Náhľad Na Počítači", "Visualização Desktop", "معاينة سطح المكتب"],
+        ["Mobile preview", "Vista Móvil", "Просмотр На Телефоне", "Mobile-Vorschau", "Náhľad Na Mobile", "Visualização Mobile", "معاينة الموبايل"],
+        ["Close preview", "Cerrar Vista Previa", "Закрыть Просмотр", "Vorschau Schließen", "Zavrieť Náhľad", "Fechar Visualização", "إغلاق المعاينة"],
+        ["Chat on WhatsApp", "Chatear por WhatsApp", "Написать В WhatsApp", "Auf WhatsApp Chatten", "Napíšte Cez WhatsApp", "Conversar No WhatsApp", "تواصل عبر واتساب"]
+    ];
+
+    var LANG_ORDER = ["en", "es", "ru", "de", "sk", "pt", "ar"];
+    var LANG_NAMES = { en: "English", es: "Español", ru: "Русский", de: "Deutsch", sk: "Slovenčina", pt: "Português", ar: "العربية" };
+    var LANG_FLAGS = { en: "🇬🇧", es: "🇪🇸", ru: "🇷🇺", de: "🇩🇪", sk: "🇸🇰", pt: "🇵🇹", ar: "🇪🇬" };
+    var RTL_LANGS = { ar: true };
+
+    // Build DICT[lang][englishKey] = translation, for every non-English language.
+    var DICT = {};
+    LANG_ORDER.forEach(function (lang, i) {
+        if (lang === "en") return;
+        var col = i; // index into each KEYS row (en=0, es=1, ru=2, de=3, sk=4, pt=5, ar=6)
+        DICT[lang] = {};
+        KEYS.forEach(function (row) {
+            DICT[lang][row[0]] = row[col];
+        });
+    });
 
     var LANG_KEY = "mhLang";
     var translatedNodes = [];
@@ -144,9 +143,12 @@
     function collect() {
         var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
         var node;
+        var allEnglishKeys = {};
+        KEYS.forEach(function (row) { allEnglishKeys[row[0]] = true; });
+
         while ((node = walker.nextNode())) {
             var trimmed = node.nodeValue.trim();
-            if (trimmed && AR.hasOwnProperty(trimmed)) {
+            if (trimmed && allEnglishKeys[trimmed]) {
                 translatedNodes.push({ node: node, original: node.nodeValue, key: trimmed });
             }
         }
@@ -156,7 +158,7 @@
                 var val = el.getAttribute(attr);
                 if (val) {
                     var trimmed = val.trim();
-                    if (AR.hasOwnProperty(trimmed)) {
+                    if (allEnglishKeys[trimmed]) {
                         translatedAttrs.push({ el: el, attr: attr, original: val, key: trimmed });
                     }
                 }
@@ -176,22 +178,27 @@
     function updateBadge(lang) {
         var flag = document.querySelectorAll(".lang-flag");
         var code = document.querySelectorAll(".lang-code");
-        flag.forEach(function (el) { el.textContent = lang === "ar" ? "🇪🇬" : "🇬🇧"; });
-        code.forEach(function (el) { el.textContent = lang === "ar" ? "AR" : "EN"; });
+        flag.forEach(function (el) { el.textContent = LANG_FLAGS[lang] || LANG_FLAGS.en; });
+        code.forEach(function (el) { el.textContent = lang.toUpperCase(); });
     }
 
     function applyLanguage(lang) {
+        if (LANG_ORDER.indexOf(lang) === -1) lang = "en";
+        var isRTL = !!RTL_LANGS[lang];
         document.documentElement.lang = lang;
-        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+        document.documentElement.dir = isRTL ? "rtl" : "ltr";
 
+        var dict = DICT[lang]; // undefined for English -> falls back to original
         translatedNodes.forEach(function (item) {
-            item.node.nodeValue = lang === "ar" ? item.original.replace(item.key, AR[item.key]) : item.original;
+            var translation = dict && dict[item.key];
+            item.node.nodeValue = translation ? item.original.replace(item.key, translation) : item.original;
         });
         translatedAttrs.forEach(function (item) {
-            item.el.setAttribute(item.attr, lang === "ar" ? item.original.replace(item.key, AR[item.key]) : item.original);
+            var translation = dict && dict[item.key];
+            item.el.setAttribute(item.attr, translation ? item.original.replace(item.key, translation) : item.original);
         });
 
-        toggleBootstrapRTL(lang === "ar");
+        toggleBootstrapRTL(isRTL);
         updateBadge(lang);
         try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* ignore */ }
     }
@@ -206,6 +213,16 @@
         var current = document.getElementById("langCurrent");
         var menu = document.getElementById("langMenu");
         if (!switcher || !current || !menu) return;
+
+        // Build the menu once, from LANG_ORDER, so every page offers the full language list.
+        menu.innerHTML = "";
+        LANG_ORDER.forEach(function (lang) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.setAttribute("data-lang", lang);
+            btn.innerHTML = "<span>" + LANG_FLAGS[lang] + "</span> " + LANG_NAMES[lang];
+            menu.appendChild(btn);
+        });
 
         current.addEventListener("click", function (e) {
             e.stopPropagation();
@@ -234,12 +251,14 @@
         function open() {
             frame.src = location.href.split("#")[0];
             overlay.classList.add("open");
+            document.body.classList.add("device-preview-open");
             document.body.style.overflow = "hidden";
             if (btnMobile) { btnMobile.classList.add("active"); btnMobile.setAttribute("aria-pressed", "true"); }
             if (btnDesktop) { btnDesktop.classList.remove("active"); btnDesktop.setAttribute("aria-pressed", "false"); }
         }
         function close() {
             overlay.classList.remove("open");
+            document.body.classList.remove("device-preview-open");
             frame.src = "about:blank";
             document.body.style.overflow = "";
             if (btnDesktop) { btnDesktop.classList.add("active"); btnDesktop.setAttribute("aria-pressed", "true"); }

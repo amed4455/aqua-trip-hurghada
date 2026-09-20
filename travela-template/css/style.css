@@ -55,6 +55,11 @@
     font-size: 30px;
 }
 
+body.device-preview-open .whatsapp-float,
+body.device-preview-open .back-to-top {
+    display: none;
+}
+
 /*** Nav Extra Controls (Language + Device Preview) ***/
 .nav-extra-controls {
     display: inline-flex;
@@ -98,7 +103,9 @@
     border-radius: 10px;
     box-shadow: 0 14px 30px -12px rgba(20, 20, 31, 0.25);
     padding: 6px;
-    min-width: 150px;
+    min-width: 170px;
+    max-height: 320px;
+    overflow-y: auto;
     display: none;
     z-index: 1050;
 }
