@@ -44,25 +44,22 @@
             <div class="row gx-0">
                 <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="" title="Booking.com"><b>B.</b></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="" title="TripAdvisor"><i class="fab fa-tripadvisor fw-normal"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center text-lg-end">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
-                        <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
-                        <a href="#"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Login</small></a>
+                        <a href="#" id="mhRegister"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
+                        <a href="#" id="mhLogin"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Login</small></a>
                         <div class="dropdown">
-                            <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i class="fa fa-home me-2"></i> My Dashboard</small></a>
+                            <a href="#" id="mhDashToggle" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i class="fa fa-home me-2"></i> My Dashboard</small></a>
                             <div class="dropdown-menu rounded">
-                                <a href="#" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> My Profile</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Inbox</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-bell me-2"></i> Notifications</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-cog me-2"></i> Account Settings</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>
+                                <a href="#" class="dropdown-item" data-mh="profile"><i class="fas fa-user-alt me-2"></i> My Profile</a>
+                                <a href="#" class="dropdown-item" data-mh="bookings"><i class="fas fa-calendar-check me-2"></i> My Bookings</a>
+                                <a href="#" class="dropdown-item" data-mh="logout"><i class="fas fa-power-off me-2"></i> Log Out</a>
                             </div>
                         </div>
                     </div>
@@ -455,6 +452,63 @@
             </div>
         </div>
         <!-- Gallery End -->
+        <style>
+            .gallery .tab-pane { position: relative; }
+            .gallery .tab-pane > .row {
+                display: flex; flex-wrap: nowrap; gap: 12px; margin: 0;
+                overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+                padding: 4px 56px; scrollbar-width: none;
+            }
+            .gallery .tab-pane > .row::-webkit-scrollbar { display: none; }
+            .gallery .tab-pane > .row > [class*="col-"] {
+                flex: 0 0 320px; width: 320px; max-width: 100%; height: 320px;
+                padding: 0; scroll-snap-align: start;
+            }
+            .gallery .tab-pane > .row .gallery-item img { object-fit: cover; }
+            .gallery-arrow {
+                position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+                width: 44px; height: 44px; border-radius: 50%; border: 0;
+                background: var(--bs-primary, #13357b); color: #fff; font-size: 18px;
+                box-shadow: 0 2px 8px rgba(0,0,0,.3); cursor: pointer; transition: opacity .2s;
+            }
+            .gallery-arrow:hover { opacity: .85; }
+            .gallery-arrow[disabled] { opacity: .3; cursor: default; }
+            .gallery-arrow.prev { left: 4px; }
+            .gallery-arrow.next { right: 4px; }
+            @media (max-width: 575px) {
+                .gallery .tab-pane > .row { padding: 4px 48px; }
+                .gallery .tab-pane > .row > [class*="col-"] { flex-basis: 240px; width: 240px; height: 240px; }
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('.gallery .tab-pane').forEach(function (pane) {
+                    var track = pane.querySelector(':scope > .row');
+                    if (!track) return;
+                    var prev = document.createElement('button');
+                    var next = document.createElement('button');
+                    prev.className = 'gallery-arrow prev'; next.className = 'gallery-arrow next';
+                    prev.type = next.type = 'button';
+                    prev.setAttribute('aria-label', 'Previous images'); next.setAttribute('aria-label', 'Next images');
+                    prev.innerHTML = '<i class="fa fa-chevron-left"></i>';
+                    next.innerHTML = '<i class="fa fa-chevron-right"></i>';
+                    pane.appendChild(prev); pane.appendChild(next);
+                    function step() { return Math.max(track.clientWidth * 0.8, 200); }
+                    function update() {
+                        prev.disabled = track.scrollLeft <= 2;
+                        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+                    }
+                    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+                    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+                    track.addEventListener('scroll', update);
+                    window.addEventListener('resize', update);
+                    document.querySelectorAll('[data-bs-toggle="pill"]').forEach(function (t) {
+                        t.addEventListener('shown.bs.tab', update);
+                    });
+                    update();
+                });
+            });
+        </script>
 
         <!-- Subscribe Start -->
         <div class="container-fluid subscribe py-5">
@@ -487,9 +541,9 @@
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-share fa-2x text-white me-2"></i>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="" title="Booking.com"><b>B.</b></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="" title="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
                             </div>
                         </div>
                     </div>
@@ -608,6 +662,7 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
         <script src="js/enhancements.js"></script>
+        <script src="js/account.js"></script>
     </body>
 
 </html>

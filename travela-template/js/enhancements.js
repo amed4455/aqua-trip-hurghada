@@ -117,7 +117,37 @@
         ["Desktop preview", "Vista de Escritorio", "Просмотр На Компьютере", "Desktop-Vorschau", "Náhľad Na Počítači", "Visualização Desktop", "معاينة سطح المكتب"],
         ["Mobile preview", "Vista Móvil", "Просмотр На Телефоне", "Mobile-Vorschau", "Náhľad Na Mobile", "Visualização Mobile", "معاينة الموبايل"],
         ["Close preview", "Cerrar Vista Previa", "Закрыть Просмотр", "Vorschau Schließen", "Zavrieť Náhľad", "Fechar Visualização", "إغلاق المعاينة"],
-        ["Chat on WhatsApp", "Chatear por WhatsApp", "Написать В WhatsApp", "Auf WhatsApp Chatten", "Napíšte Cez WhatsApp", "Conversar No WhatsApp", "تواصل عبر واتساب"]
+        ["Chat on WhatsApp", "Chatear por WhatsApp", "Написать В WhatsApp", "Auf WhatsApp Chatten", "Napíšte Cez WhatsApp", "Conversar No WhatsApp", "تواصل عبر واتساب"],
+
+        ["My Bookings", "Mis Reservas", "Мои бронирования", "Meine Buchungen", "Moje rezervácie", "Minhas Reservas", "حجوزاتي"],
+        ["Phone number", "Número de teléfono", "Номер телефона", "Telefonnummer", "Telefónne číslo", "Número de telefone", "رقم الهاتف"],
+        ["We will email you a confirmation number to verify your address.", "Te enviaremos un número de confirmación por correo para verificar tu dirección.", "Мы отправим вам на почту номер подтверждения, чтобы проверить ваш адрес.", "Wir senden Ihnen eine Bestätigungsnummer per E-Mail, um Ihre Adresse zu bestätigen.", "Pošleme vám e-mailom potvrdzovacie číslo na overenie vašej adresy.", "Enviaremos um número de confirmação por e-mail para verificar seu endereço.", "هنبعتلك رقم تأكيد على الإيميل عشان نتأكد إنه بتاعك."],
+        ["Send confirmation number", "Enviar número de confirmación", "Отправить номер подтверждения", "Bestätigungsnummer senden", "Odoslať potvrdzovacie číslo", "Enviar número de confirmação", "ابعت رقم التأكيد"],
+        ["Enter the confirmation number we sent to", "Introduce el número de confirmación que enviamos a", "Введите номер подтверждения, отправленный на", "Geben Sie die Bestätigungsnummer ein, die wir gesendet haben an", "Zadajte potvrdzovacie číslo, ktoré sme poslali na", "Digite o número de confirmação que enviamos para", "اكتب رقم التأكيد اللي بعتناه على"],
+        ["Confirmation number", "Número de confirmación", "Номер подтверждения", "Bestätigungsnummer", "Potvrdzovacie číslo", "Número de confirmação", "رقم التأكيد"],
+        ["Verify", "Verificar", "Подтвердить", "Bestätigen", "Overiť", "Verificar", "تأكيد"],
+        ["Send a new confirmation number", "Enviar un nuevo número", "Отправить новый номер", "Neue Nummer senden", "Poslať nové číslo", "Enviar um novo número", "ابعت رقم جديد"],
+        ["Use a different email", "Usar otro correo", "Использовать другой email", "Andere E-Mail verwenden", "Použiť iný e-mail", "Usar outro e-mail", "استخدم إيميل تاني"],
+        ["Please enter a valid email address.", "Introduce un correo electrónico válido.", "Введите корректный адрес электронной почты.", "Bitte geben Sie eine gültige E-Mail-Adresse ein.", "Zadajte platnú e-mailovú adresu.", "Digite um e-mail válido.", "اكتب إيميل صحيح."],
+        ["Please enter your name.", "Introduce tu nombre.", "Введите ваше имя.", "Bitte geben Sie Ihren Namen ein.", "Zadajte svoje meno.", "Digite seu nome.", "اكتب اسمك."],
+        ["The confirmation number is wrong or has expired.", "El número de confirmación es incorrecto o ha caducado.", "Номер подтверждения неверен или истёк.", "Die Bestätigungsnummer ist falsch oder abgelaufen.", "Potvrdzovacie číslo je nesprávne alebo vypršalo.", "O número de confirmação está errado ou expirou.", "رقم التأكيد غلط أو انتهت صلاحيته."],
+        ["Too many attempts. Please request a new confirmation number.", "Demasiados intentos. Solicita un nuevo número de confirmación.", "Слишком много попыток. Запросите новый номер подтверждения.", "Zu viele Versuche. Bitte fordern Sie eine neue Bestätigungsnummer an.", "Príliš veľa pokusov. Vyžiadajte si nové potvrdzovacie číslo.", "Muitas tentativas. Solicite um novo número de confirmação.", "محاولات كتير. اطلب رقم تأكيد جديد."],
+        ["Please wait a minute before requesting another one.", "Espera un minuto antes de pedir otro.", "Подождите минуту, прежде чем запросить новый.", "Bitte warten Sie eine Minute, bevor Sie eine neue anfordern.", "Počkajte minútu, kým si vyžiadate ďalšie.", "Aguarde um minuto antes de pedir outro.", "استنى دقيقة قبل ما تطلب رقم تاني."],
+        ["Something went wrong. Please try again.", "Algo salió mal. Inténtalo de nuevo.", "Что-то пошло не так. Попробуйте ещё раз.", "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.", "Niečo sa pokazilo. Skúste to znova.", "Algo deu errado. Tente novamente.", "حصل خطأ. جرب تاني."],
+        ["Cannot reach the server. Please try again later.", "No se puede conectar con el servidor. Inténtalo más tarde.", "Не удаётся связаться с сервером. Попробуйте позже.", "Server nicht erreichbar. Bitte versuchen Sie es später erneut.", "Nedá sa pripojiť k serveru. Skúste to neskôr.", "Não foi possível conectar ao servidor. Tente mais tarde.", "مش قادر أوصل للسيرفر. جرب بعد شوية."],
+        ["Booking confirmed!", "¡Reserva confirmada!", "Бронирование подтверждено!", "Buchung bestätigt!", "Rezervácia potvrdená!", "Reserva confirmada!", "تم تأكيد الحجز!"],
+        ["Your booking number is", "Tu número de reserva es", "Номер вашего бронирования:", "Ihre Buchungsnummer lautet", "Číslo vašej rezervácie je", "Seu número de reserva é", "رقم حجزك هو"],
+        ["We also emailed it to you.", "También te lo enviamos por correo.", "Мы также отправили его вам на почту.", "Wir haben sie Ihnen auch per E-Mail geschickt.", "Poslali sme vám ho aj e-mailom.", "Também enviamos por e-mail.", "وبعتناهولك على الإيميل كمان."],
+        ["Close", "Cerrar", "Закрыть", "Schließen", "Zavrieť", "Fechar", "إغلاق"],
+        ["Save changes", "Guardar cambios", "Сохранить изменения", "Änderungen speichern", "Uložiť zmeny", "Salvar alterações", "حفظ التغييرات"],
+        ["Saved", "Guardado", "Сохранено", "Gespeichert", "Uložené", "Salvo", "تم الحفظ"],
+        ["You have no bookings yet.", "Aún no tienes reservas.", "У вас пока нет бронирований.", "Sie haben noch keine Buchungen.", "Zatiaľ nemáte žiadne rezervácie.", "Você ainda não tem reservas.", "معندكش حجوزات لسه."],
+        ["Signed in as", "Sesión iniciada como", "Вы вошли как", "Angemeldet als", "Prihlásený ako", "Conectado como", "مسجّل دخول باسم"],
+        ["Verify your email to complete your booking.", "Verifica tu correo para completar la reserva.", "Подтвердите email, чтобы завершить бронирование.", "Bestätigen Sie Ihre E-Mail, um die Buchung abzuschließen.", "Overte svoj e-mail na dokončenie rezervácie.", "Verifique seu e-mail para concluir a reserva.", "أكّد إيميلك عشان تكمل الحجز."],
+        ["Booking number", "Número de reserva", "Номер бронирования", "Buchungsnummer", "Číslo rezervácie", "Número da reserva", "رقم الحجز"],
+        ["Book a tour", "Reservar un tour", "Забронировать тур", "Tour buchen", "Rezervovať zájazd", "Reservar um passeio", "احجز رحلة"],
+        ["Please choose a future date and time.", "Elige una fecha y hora futuras.", "Выберите будущие дату и время.", "Bitte wählen Sie ein zukünftiges Datum und eine Uhrzeit.", "Vyberte budúci dátum a čas.", "Escolha uma data e hora futuras.", "اختار تاريخ ووقت في المستقبل."],
+        ["Please choose a destination.", "Elige un destino.", "Выберите направление.", "Bitte wählen Sie ein Reiseziel.", "Vyberte destináciu.", "Escolha um destino.", "اختار الوجهة."]
     ];
 
     var LANG_ORDER = ["en", "es", "ru", "de", "sk", "pt", "ar"];
@@ -137,6 +167,13 @@
     });
 
     var LANG_KEY = "mhLang";
+    var currentLang = "en";
+
+    window.MH_T = function (key) {
+        var dict = DICT[currentLang];
+        return (dict && dict[key]) || key;
+    };
+    window.MH_LANG = function () { return currentLang; };
     var translatedNodes = [];
     var translatedAttrs = [];
 
@@ -184,6 +221,7 @@
 
     function applyLanguage(lang) {
         if (LANG_ORDER.indexOf(lang) === -1) lang = "en";
+        currentLang = lang;
         var isRTL = !!RTL_LANGS[lang];
         document.documentElement.lang = lang;
         document.documentElement.dir = isRTL ? "rtl" : "ltr";
