@@ -11,6 +11,30 @@
 
     function t(key) { return window.MH_T ? window.MH_T(key) : key; }
 
+    /* ---------- Hero search -> real destination search ---------- */
+    // نفس الخيارات الموجودة في select الوجهة بصفحة الحجز (booking.html#select1)
+    var DESTINATIONS = [
+        { value: "Orange Bay", keywords: ["orange", "orange bay"] },
+        { value: "Giftun Island", keywords: ["giftun", "giftun island", "island"] },
+        { value: "Hula Hula Beach Island", keywords: ["hula", "hula hula", "beach"] },
+        { value: "Dolphin & Snorkeling Trip", keywords: ["dolphin", "snorkel", "snorkeling", "snorkelling"] },
+    ];
+
+    function matchDestination(query) {
+        var q = (query || "").trim().toLowerCase();
+        if (!q) return null;
+        var match = null;
+        DESTINATIONS.some(function (d) {
+            var name = d.value.toLowerCase();
+            if (name.indexOf(q) !== -1 || q.indexOf(name) !== -1) { match = d.value; return true; }
+            return d.keywords.some(function (k) {
+                if (k.indexOf(q) !== -1 || q.indexOf(k) !== -1) { match = d.value; return true; }
+                return false;
+            });
+        });
+        return match;
+    }
+
     var state = { token: null, user: null };
     try {
         state.token = localStorage.getItem(TOKEN_KEY);
@@ -405,6 +429,15 @@
         var when = bookingForm.querySelector("#datetime");
         if (when) { when.type = "datetime-local"; when.min = localNowValue(); }
 
+        var destSelect = bookingForm.querySelector("#select1");
+        var wanted = new URLSearchParams(location.search).get("destination");
+        if (wanted && destSelect) {
+            var found = Array.prototype.filter.call(destSelect.options, function (o) {
+                return o.value && o.value.toLowerCase() === wanted.trim().toLowerCase();
+            })[0];
+            if (found) destSelect.value = found.value;
+        }
+
         var error = el("div", { class: "text-warning fw-bold mt-2", role: "alert" });
         var submit = bookingForm.querySelector('button[type="submit"]');
         submit.parentNode.appendChild(error);
@@ -489,6 +522,21 @@
     /* ---------- Wiring ---------- */
     function init() {
         function on(node, handler) { if (node) node.addEventListener("click", handler); }
+
+        var heroInput = document.getElementById("heroSearchInput");
+        function runHeroSearch() {
+            if (!heroInput) return;
+            var query = heroInput.value.trim();
+            if (!query) { heroInput.focus(); return; }
+            var match = matchDestination(query);
+            location.href = "booking.html?destination=" + encodeURIComponent(match || query) + "#book";
+        }
+        on(document.getElementById("heroSearchBtn"), function (e) { e.preventDefault(); runHeroSearch(); });
+        if (heroInput) {
+            heroInput.addEventListener("keydown", function (e) {
+                if (e.key === "Enter") { e.preventDefault(); runHeroSearch(); }
+            });
+        }
 
         on(document.getElementById("mhRegister"), function (e) { e.preventDefault(); showAuth({ mode: "register" }); });
         on(document.getElementById("mhLogin"), function (e) { e.preventDefault(); showAuth({ mode: "login" }); });
