@@ -23,7 +23,7 @@ async function sendMail({ to, subject, text }) {
     return false;
   }
   await transporter.sendMail({
-    from: `"MarineHub Hurghada" <${GMAIL_USER}>`,
+    from: `"Aqua Trip Hurghada" <${GMAIL_USER}>`,
     to,
     subject,
     text,

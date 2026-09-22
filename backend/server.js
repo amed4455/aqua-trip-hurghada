@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const store = require('./store');
 const { client, state, sendMessage } = require('./bot');
 
 const app = express();
@@ -46,8 +47,20 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`الباك اند شغال على http://localhost:${PORT}`);
+// أي راوت بعت الخطأ لـ next(err) بيوصل هنا
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: 'server_error' });
 });
 
-client.initialize();
+store.ready
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`الباك اند شغال على http://localhost:${PORT}`);
+    });
+    client.initialize();
+  })
+  .catch((err) => {
+    console.error('فشل الاتصال بقاعدة بيانات MySQL — تأكد من إعدادات DB_HOST/DB_USER/DB_PASSWORD/DB_NAME في .env:', err.message);
+    process.exit(1);
+  });

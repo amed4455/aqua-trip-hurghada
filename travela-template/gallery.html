@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>MarineHub Hurghada - Tourism Website Template</title>
+        <title>Aqua Trip Hurghada - Tourism Website Template</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -39,15 +39,26 @@
         </div>
         <!-- Spinner End -->
 
-        <!-- Topbar Start -->
-        <div class="container-fluid bg-primary px-5 d-none d-lg-block">
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <img src="img/logo-animation.webp" class="navbar-logo-video" alt="Aqua Trip Hurghada">
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="nav-right ms-auto">
+        <div class="nav-top-row">
             <div class="row gx-0">
                 <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="" title="Booking.com"><b>B.</b></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="" title="TripAdvisor"><i class="fab fa-tripadvisor fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.tripadvisor.com/Profile/aquatriphur96" target="_blank" rel="noopener" title="TripAdvisor"><img src="img/tripadvisor-owl-blue.png" alt="TripAdvisor" style="width:16px;height:16px;flex:none;max-width:none;object-fit:contain;"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center text-lg-end">
@@ -87,19 +98,7 @@
                 </div>
             </div>
         </div>
-        <!-- Topbar End -->
-
-        <!-- Navbar & Hero Start -->
-        <div class="container-fluid position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>MarineHub Hurghada</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="nav-main-row">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
@@ -121,6 +120,8 @@
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                     <a href="" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Now</a>
+                    </div>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -460,15 +461,27 @@
                 padding: 4px 56px; scrollbar-width: none;
             }
             .gallery .tab-pane > .row::-webkit-scrollbar { display: none; }
+            .gallery .tab-pane > .row { cursor: grab; }
+            .gallery .tab-pane > .row.dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; user-select: none; }
             .gallery .tab-pane > .row > [class*="col-"] {
                 flex: 0 0 320px; width: 320px; max-width: 100%; height: 320px;
                 padding: 0; scroll-snap-align: start;
             }
-            .gallery .tab-pane > .row .gallery-item img { object-fit: cover; }
+            .gallery .tab-pane > .row .gallery-item img { object-fit: contain; background: #f1f4f9; }
+            .gallery .tab-pane > .row { gap: 60px; padding: 24px 72px; }
+            .gallery .tab-pane > .row > [class*="col-"] { flex-basis: 280px; width: 280px; height: 360px; }
+            .gallery .gallery-item { position: relative; overflow: hidden; border-radius: 50%; }
+            .gallery .gallery-item img { border-radius: 50% !important; }
+            .gallery .gallery-item .gallery-content { display: none !important; }
+            .gallery .gallery-item .gallery-plus-icon {
+                position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+                background: rgba(55, 181, 189, .55); opacity: 0; transition: opacity .3s; border-radius: 50%;
+            }
+            .gallery .gallery-item:hover .gallery-plus-icon { opacity: 1; }
             .gallery-arrow {
                 position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
                 width: 44px; height: 44px; border-radius: 50%; border: 0;
-                background: var(--bs-primary, #13357b); color: #fff; font-size: 18px;
+                background: var(--bs-primary); color: #fff; font-size: 18px;
                 box-shadow: 0 2px 8px rgba(0,0,0,.3); cursor: pointer; transition: opacity .2s;
             }
             .gallery-arrow:hover { opacity: .85; }
@@ -476,8 +489,14 @@
             .gallery-arrow.prev { left: 4px; }
             .gallery-arrow.next { right: 4px; }
             @media (max-width: 575px) {
-                .gallery .tab-pane > .row { padding: 4px 48px; }
-                .gallery .tab-pane > .row > [class*="col-"] { flex-basis: 240px; width: 240px; height: 240px; }
+                .gallery .tab-pane > .row { gap: 8px; padding: 4px 34px; }
+                .gallery .tab-pane > .row > [class*="col-"] { flex-basis: 140px; width: 140px; height: 140px; }
+                .gallery-arrow { width: 28px; height: 28px; font-size: 12px; }
+                .gallery-arrow.prev { left: 2px; }
+                .gallery-arrow.next { right: 2px; }
+                .gallery .tab-class .nav-pills { flex-wrap: wrap; row-gap: 8px; }
+                .gallery .tab-class .nav-pills a { margin: 0 4px !important; }
+                .gallery .tab-class .nav-pills a span { width: auto !important; padding: 0 14px; font-size: 14px; }
             }
         </style>
         <script>
@@ -500,6 +519,29 @@
                     }
                     prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
                     next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+                    var down = false, moved = false, startX = 0, startLeft = 0;
+                    track.addEventListener('mousedown', function (e) {
+                        if (e.button !== 0) return;
+                        down = true; moved = false; startX = e.pageX; startLeft = track.scrollLeft;
+                    });
+                    window.addEventListener('mousemove', function (e) {
+                        if (!down) return;
+                        var dx = e.pageX - startX;
+                        if (!moved && Math.abs(dx) > 5) {
+                            moved = true;
+                            track.classList.add('dragging');
+                        }
+                        if (moved) { e.preventDefault(); track.scrollLeft = startLeft - dx; }
+                    });
+                    window.addEventListener('mouseup', function () {
+                        if (!down) return;
+                        down = false;
+                        track.classList.remove('dragging');
+                    });
+                    track.addEventListener('click', function (e) {
+                        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+                    }, true);
+                    track.addEventListener('dragstart', function (e) { e.preventDefault(); });
                     track.addEventListener('scroll', update);
                     window.addEventListener('resize', update);
                     document.querySelectorAll('[data-bs-toggle="pill"]').forEach(function (t) {
@@ -543,7 +585,7 @@
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href="" title="Booking.com"><b>B.</b></a>
-                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="" title="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.tripadvisor.com/Profile/aquatriphur96" target="_blank" rel="noopener" title="TripAdvisor"><img src="img/tripadvisor-owl.png" alt="TripAdvisor" style="width:20px;height:20px;flex:none;max-width:none;object-fit:contain;"></a>
                             </div>
                         </div>
                     </div>
@@ -618,16 +660,9 @@
         <!-- Copyright Start -->
         <div class="container-fluid copyright text-body py-4">
             <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-6 text-center text-md-end mb-md-0">
-                        <i class="fas fa-copyright me-2"></i><a class="text-white" href="#">Your Site Name</a>, All right reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-start">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="text-white" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
-                    </div>
+                <div class="row g-4 align-items-center justify-content-center">
+                    <div class="col-12 text-center">
+                        <i class="fas fa-copyright me-2"></i><a class="text-white" href="index.html">Aqua Trip Hurghada</a>, All rights reserved.
                     </div>
                 </div>
             </div>

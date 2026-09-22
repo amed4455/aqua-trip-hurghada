@@ -1,8 +1,10 @@
 (function () {
     "use strict";
 
-    // عنوان الباك اند (نفس البورت اللي في backend/.env)
-    var API = "http://localhost:4001";
+    // عنوان الباك اند: محليًا بيكلم البورت بتاع الباك اند على نفس الجهاز.
+    // على السيرفر الحقيقي (Vercel) بيبقى مسار نسبي "" ويتحول لسيرفر الـ VPS عن طريق rewrite في vercel.json.
+    var isLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+    var API = window.MH_API_BASE || (isLocal ? "http://localhost:4001" : "");
     var TOKEN_KEY = "mhToken";
     var USER_KEY = "mhUser";
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -220,6 +222,34 @@
             ]));
         }
         modal.appendChild(form);
+
+        if (ctx.step === "email") {
+            var note = el("p", { class: "mh-social-note" });
+            function goToProvider(provider) {
+                var ret = location.pathname.replace(/^.*[\\/]/, "/") + location.search;
+                location.href = API + "/api/auth/" + provider + "/start?return=" + encodeURIComponent(ret);
+            }
+            modal.appendChild(el("div", { class: "mh-social-divider", text: t("Or continue with") }));
+            modal.appendChild(el("div", { class: "mh-social-buttons" }, [
+                el("button", {
+                    type: "button", class: "mh-social-btn mh-google",
+                    onclick: function () { goToProvider("google"); },
+                }, [el("i", { class: "fab fa-google" }), t("Continue with Gmail")]),
+                el("div", { class: "d-flex gap-2" }, [
+                    el("button", {
+                        type: "button", class: "mh-social-btn mh-facebook",
+                        onclick: function () { goToProvider("facebook"); },
+                    }, [el("i", { class: "fab fa-facebook-f" }), t("Facebook")]),
+                    el("button", {
+                        type: "button", class: "mh-social-btn mh-instagram",
+                        onclick: function () {
+                            note.textContent = t("Instagram does not offer direct sign-in for personal accounts. Please use Google, Facebook, or your email.");
+                        },
+                    }, [el("i", { class: "fab fa-instagram" }), t("Instagram")]),
+                ]),
+            ]));
+            modal.appendChild(note);
+        }
         if (firstInput) firstInput.focus();
     }
 
@@ -428,6 +458,34 @@
         else location.href = "booking.html#book";
     }
 
+    var OAUTH_ERRORS = {
+        google_not_configured: "Google sign-in is not set up yet on the server.",
+        facebook_not_configured: "Facebook sign-in is not set up yet on the server.",
+        google_denied: "Google sign-in was cancelled.",
+        facebook_denied: "Facebook sign-in was cancelled.",
+        google_no_email: "Your Google account has no verified email to sign in with.",
+        facebook_no_email: "Your Facebook account has no email to sign in with. Please add one or use another method.",
+        invalid_state: "That sign-in link expired. Please try again.",
+    };
+
+    function handleOAuthRedirect() {
+        var params = new URLSearchParams(location.search);
+        var token = params.get("authToken");
+        var authError = params.get("authError");
+        if (!token && !authError) return;
+        params.delete("authToken");
+        params.delete("authError");
+        var clean = location.pathname + (params.toString() ? "?" + params.toString() : "") + location.hash;
+        history.replaceState(null, "", clean);
+        if (token) {
+            state.token = token;
+        } else if (authError) {
+            showAuth({ mode: "login" });
+            var errEl = modal && modal.querySelector(".mh-error");
+            if (errEl) errEl.textContent = t(OAUTH_ERRORS[authError] || "Sign-in failed. Please try again.");
+        }
+    }
+
     /* ---------- Wiring ---------- */
     function init() {
         function on(node, handler) { if (node) node.addEventListener("click", handler); }
@@ -456,9 +514,11 @@
         updateAccountUI();
         if (location.hash === "#book") setTimeout(goToBooking, 300);
 
+        handleOAuthRedirect();
         if (state.token) {
             api("/me").then(function (r) {
                 if (r.ok) { saveSession(state.token, r.data.user); updateAccountUI(); }
+                else { saveSession(null, null); updateAccountUI(); }
             });
         }
     }

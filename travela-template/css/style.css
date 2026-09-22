@@ -159,7 +159,7 @@ body.device-preview-open .back-to-top {
 
 .device-btn.active {
     background: #fff;
-    color: #13357B;
+    color: var(--bs-primary);
 }
 
 .device-overlay {
@@ -376,13 +376,9 @@ body.device-preview-open .back-to-top {
     color: var(--bs-primary);
 }
 
-.navbar-light .navbar-brand img {
-    max-height: 60px;
+.navbar-light .navbar-brand img,
+.navbar-brand video {
     transition: .5s;
-}
-
-.sticky-top.navbar-light .navbar-brand img {
-    max-height: 45px;
 }
 
 .navbar .dropdown-toggle::after {
@@ -452,9 +448,6 @@ body.device-preview-open .back-to-top {
         color: var(--bs-primary) !important;
     }
 
-    .navbar-light .navbar-brand img {
-        max-height: 45px;
-    }
 }
 
 @media (min-width: 992px) {
@@ -563,12 +556,12 @@ body.device-preview-open .back-to-top {
 @media (max-width: 768px) {
     .carousel-header .carousel-inner .carousel-item img,
     .carousel-header .carousel-inner .carousel-item .carousel-caption {
-        height: 700px;
-        margin-top: -100px;
+        height: 420px;
+        margin-top: -60px;
     }
 
     .carousel-header {
-        height: 700px !important;
+        height: 420px !important;
     }
 
     .carousel-header .carousel-control-prev .carousel-control-prev-icon,
@@ -577,11 +570,25 @@ body.device-preview-open .back-to-top {
     }
     
     .search-bar {
-        margin-top: -100px;
+        margin-top: -60px;
         transition: 0.5s;
     }
 }
 /*** Carousel Hero Header End ***/
+
+/*** Hide the visible scrollbar on mobile (scrolling still works) ***/
+@media (max-width: 767.98px) {
+    html {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+}
 
 
 /*** Single Page Hero Header Start ***/
@@ -923,6 +930,60 @@ body.device-preview-open .back-to-top {
     pointer-events: none;
 }
 
+.mh-social-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 0 14px;
+    color: #8a94a6;
+    font-size: 0.85rem;
+}
+
+.mh-social-divider::before,
+.mh-social-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e2e6ee;
+}
+
+.mh-social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mh-social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #dde2ec;
+    background: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--bs-dark);
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+
+.mh-social-btn:hover { background: #f6f8fb; border-color: #c9d1e0; }
+.mh-social-buttons .d-flex .mh-social-btn { flex: 1; width: auto; }
+.mh-social-btn i { font-size: 1.1rem; }
+.mh-social-btn.mh-google i { color: #ea4335; }
+.mh-social-btn.mh-facebook i { color: #1877f2; }
+.mh-social-btn.mh-instagram i { color: #d6249f; }
+
+.mh-social-note {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: #8a94a6;
+    text-align: center;
+}
+
 .mh-tabs {
     display: flex;
     gap: 8px;
@@ -974,4 +1035,98 @@ body.device-preview-open .back-to-top {
     text-overflow: ellipsis;
     white-space: nowrap;
     vertical-align: middle;
+}
+
+
+/*** Solid white navbar with large logo (matches reference bar) ***/
+.navbar-light,
+.sticky-top.navbar-light {
+    background: var(--bs-white) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+    border-bottom: 0;
+}
+
+.navbar-light .navbar-nav .nav-link,
+.sticky-top.navbar-light .navbar-nav .nav-link {
+    color: var(--bs-dark) !important;
+    font-weight: 600;
+    padding: 30px 18px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-item:hover > .nav-link {
+    color: var(--bs-primary) !important;
+}
+
+.navbar-light .navbar-nav .nav-link::before {
+    display: none !important;
+}
+
+
+/*** Topbar merged into the white navbar ***/
+.nav-right { display: flex; flex-direction: column; align-items: flex-end; }
+.nav-top-row { width: 100%; }
+.nav-top-row .row { flex-wrap: nowrap; justify-content: flex-end; align-items: center; }
+.nav-top-row [class*="col-"] { width: auto; flex: none; margin: 0 !important; display: flex; align-items: center; }
+.nav-top-row .d-inline-flex { height: 34px !important; }
+.nav-top-row .btn-outline-light { color: var(--bs-primary); border-color: var(--bs-primary); }
+.nav-top-row .btn-outline-light:hover { background: var(--bs-primary); color: #fff; }
+.nav-top-row .text-light { color: var(--bs-dark) !important; }
+.nav-top-row a:hover .text-light, .nav-top-row a.text-light:hover { color: var(--bs-primary) !important; }
+.nav-top-row .lang-current { background: #f1f4f9; border-color: #d5dbe6; color: var(--bs-dark); }
+.nav-top-row .device-toggle { background: #f1f4f9; }
+.nav-top-row .device-btn { color: var(--bs-dark); }
+.nav-top-row .device-btn.active { background: var(--bs-primary); color: #fff; }
+.nav-top-row .nav-extra-controls { margin-inline-start: 12px; }
+.nav-top-row { margin-bottom: 14px; }
+.nav-main-row { display: flex; align-items: center; }
+.navbar-light .navbar-nav .nav-link,
+.sticky-top.navbar-light .navbar-nav .nav-link { padding-top: 14px; padding-bottom: 14px; }
+@media (max-width: 991.98px) {
+    .nav-right { align-items: stretch; }
+    .nav-top-row .row, .nav-top-row [class*="col-"] { flex-wrap: wrap; justify-content: flex-start; }
+    .nav-main-row { flex-direction: column; align-items: stretch; }
+    .nav-top-row { padding: 8px 0; border-bottom: 1px solid #ddd; margin-bottom: 14px; }
+}
+
+/* Social icons sit right next to Register/Login */
+.nav-top-row .row { justify-content: flex-end; gap: 14px; width: 100%; margin: 0; }
+.nav-top-row [class*="col-"] { padding: 0; }
+.nav-top-row .btn-sm-square { width: 30px; height: 30px; margin-right: 6px !important; }
+.nav-top-row .btn-sm-square:last-child { margin-right: 0 !important; }
+.nav-top-row #mhRegister, .nav-top-row #mhLogin { white-space: nowrap; }
+@media (max-width: 991.98px) {
+    .nav-top-row .row { justify-content: flex-start; gap: 8px 14px; }
+}
+
+/*** Logo sized to hug the navbar bar, no extra white space ***/
+.navbar-light .navbar-brand { padding: 4px 0 !important; }
+.navbar-light .navbar-brand img,
+.navbar-brand video,
+.sticky-top.navbar-light .navbar-brand img,
+.sticky-top.navbar-light .navbar-brand video {
+    height: 56px !important;
+    max-height: 56px !important;
+    width: auto !important;
+}
+@media (min-width: 992px) {
+    .navbar-light .navbar-brand img,
+    .navbar-light .navbar-brand video {
+        height: 92px !important;
+        max-height: 92px !important;
+    }
+    .sticky-top.navbar-light .navbar-brand img,
+    .sticky-top.navbar-light .navbar-brand video {
+        height: 60px !important;
+        max-height: 60px !important;
+    }
+}
+.nav-top-row .ta-logo-link { display: inline-flex; align-items: center; margin-left: 4px; }
+
+.navbar-brand video {
+    width: auto;
+    object-fit: contain;
+    background: transparent;
+    pointer-events: none;
 }
