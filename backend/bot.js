@@ -9,7 +9,8 @@ const state = {
 };
 
 const client = new Client({
-  authStrategy: new LocalAuth(),
+  // لو مضبوط قرص دائم (Render Disk مثلاً) بيستخدمه، عشان الجلسة متتمسحش مع كل ديبلوي
+  authStrategy: new LocalAuth({ dataPath: process.env.WWEBJS_AUTH_PATH || undefined }),
   puppeteer: {
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   },
