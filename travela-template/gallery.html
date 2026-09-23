@@ -4,6 +4,10 @@
     <head>
         <meta charset="utf-8">
         <title>Aqua Trip Hurghada - Tourism Website Template</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -43,7 +47,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <img src="img/logo-animation.webp" class="navbar-logo-video" alt="Aqua Trip Hurghada">
+                    <img data-src="img/logo-animation.webp" class="navbar-logo-video" alt="Aqua Trip Hurghada"><script>(function(){var i=document.currentScript.previousElementSibling;i.src=i.getAttribute('data-src')+'?r='+Date.now();})();</script>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -143,36 +147,30 @@
         <!-- Gallery Start -->
         <div class="container-fluid gallery py-5 my-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">Our Gallery</h5>
-                <h1 class="mb-4">Tourism & Traveling Gallery.</h1>
-                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
-                </p>
+                <h5 class="section-title px-3"><i class="fas fa-plus me-2"></i>Service</h5>
+                <h1 class="mb-0">Choose our tours and enjoy them now!</h1>
             </div>
             <div class="tab-class text-center">
-                <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+                <ul class="nav nav-pills tour-choose-nav d-inline-flex flex-wrap justify-content-center mb-5">
                     <li class="nav-item">
-                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#GalleryTab-1">
-                            <span class="text-dark" style="width: 150px;">All</span>
+                        <a class="tour-card active" data-bs-toggle="pill" href="#GalleryTab-1">
+                            <span class="tour-card-badge">01</span>
+                            <span class="tour-card-icon"><i class="fas fa-ship"></i></span>
+                            <span class="tour-card-label">Island getaways</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#GalleryTab-2">
-                            <span class="text-dark" style="width: 150px;">World tour</span>
+                        <a class="tour-card" data-bs-toggle="pill" href="#GalleryTab-2">
+                            <span class="tour-card-badge">02</span>
+                            <span class="tour-card-icon"><i class="fas fa-hiking"></i></span>
+                            <span class="tour-card-label">Adventures in the desert</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#GalleryTab-3">
-                            <span class="text-dark" style="width: 150px;">Ocean Tour</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#GalleryTab-4">
-                            <span class="text-dark" style="width: 150px;">Summer Tour</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#GalleryTab-5">
-                            <span class="text-dark" style="width: 150px;">Sport Tour</span>
+                        <a class="tour-card" data-bs-toggle="pill" href="#GalleryTab-3">
+                            <span class="tour-card-badge">03</span>
+                            <span class="tour-card-icon"><i class="fas fa-swimmer"></i></span>
+                            <span class="tour-card-label">Freediving</span>
                         </a>
                     </li>
                 </ul>
@@ -184,7 +182,7 @@
                                     <img src="img/gallery-1.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -198,7 +196,7 @@
                                     <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -212,7 +210,7 @@
                                     <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -226,7 +224,7 @@
                                     <img src="img/gallery-4.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -240,7 +238,7 @@
                                     <img src="img/gallery-5.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -254,7 +252,7 @@
                                     <img src="img/gallery-6.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -268,7 +266,7 @@
                                     <img src="img/gallery-7.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -282,7 +280,7 @@
                                     <img src="img/gallery-8.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -296,7 +294,7 @@
                                     <img src="img/gallery-9.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -310,7 +308,7 @@
                                     <img src="img/gallery-10.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Island Getaways</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -328,7 +326,7 @@
                                     <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Desert Adventure</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -342,7 +340,7 @@
                                     <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Desert Adventure</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -360,7 +358,7 @@
                                     <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Freediving</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -374,71 +372,7 @@
                                     <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
-                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="gallery-plus-icon">
-                                        <a href="img/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="GalleryTab-4" class="tab-pane fade show p-0">
-                        <div class="row g-2">
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="gallery-item h-100">
-                                    <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
-                                    <div class="gallery-content">
-                                        <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
-                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="gallery-plus-icon">
-                                        <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
-                                <div class="gallery-item h-100">
-                                    <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
-                                    <div class="gallery-content">
-                                        <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
-                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="gallery-plus-icon">
-                                        <a href="img/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="GalleryTab-5" class="tab-pane fade show p-0">
-                        <div class="row g-2">
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="gallery-item h-100">
-                                    <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
-                                    <div class="gallery-content">
-                                        <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
-                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="gallery-plus-icon">
-                                        <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
-                                <div class="gallery-item h-100">
-                                    <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
-                                    <div class="gallery-content">
-                                        <div class="gallery-info">
-                                            <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                            <h5 class="text-white text-uppercase mb-2">Freediving</h5>
                                             <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </div>
@@ -475,7 +409,7 @@
             .gallery .gallery-item .gallery-content { display: none !important; }
             .gallery .gallery-item .gallery-plus-icon {
                 position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-                background: rgba(55, 181, 189, .55); opacity: 0; transition: opacity .3s; border-radius: 50%;
+                background: rgba(50, 163, 170, .55); opacity: 0; transition: opacity .3s; border-radius: 50%;
             }
             .gallery .gallery-item:hover .gallery-plus-icon { opacity: 1; }
             .gallery-arrow {
@@ -497,6 +431,33 @@
                 .gallery .tab-class .nav-pills { flex-wrap: wrap; row-gap: 8px; }
                 .gallery .tab-class .nav-pills a { margin: 0 4px !important; }
                 .gallery .tab-class .nav-pills a span { width: auto !important; padding: 0 14px; font-size: 14px; }
+            }
+            .tour-choose-nav { gap: 24px; row-gap: 24px; padding-top: 14px; }
+            .tour-card {
+                position: relative; display: flex; flex-direction: column; align-items: center;
+                justify-content: center; width: 170px; min-height: 130px; padding: 30px 16px 20px;
+                background: #fff; border: 1px solid #e9edf3; border-radius: 14px;
+                text-decoration: none; transition: .3s;
+            }
+            .tour-card-badge {
+                position: absolute; top: -14px; left: -14px; width: 32px; height: 32px;
+                border-radius: 50%; background: #eef1f6; color: var(--bs-dark);
+                font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center;
+            }
+            .tour-card-icon { font-size: 26px; color: var(--bs-primary); margin-bottom: 12px; transition: .3s; }
+            .tour-card-label { font-weight: 600; color: var(--bs-dark); text-align: center; transition: .3s; }
+            .tour-card.active {
+                background: var(--bs-primary); border-color: var(--bs-primary);
+                box-shadow: 0 15px 30px rgba(0,0,0,.15); transform: translateY(-6px);
+            }
+            .tour-card.active .tour-card-badge { background: var(--bs-secondary); color: #fff; }
+            .tour-card.active .tour-card-icon,
+            .tour-card.active .tour-card-label { color: #fff; }
+            @media (max-width: 575px) {
+                .tour-card { width: 105px; min-height: 100px; padding: 22px 8px 14px; }
+                .tour-card-icon { font-size: 20px; margin-bottom: 8px; }
+                .tour-card-label { font-size: 12px; }
+                .tour-card-badge { width: 24px; height: 24px; font-size: 10px; top: -10px; left: -10px; }
             }
         </style>
         <script>
@@ -594,7 +555,6 @@
                             <h4 class="mb-4 text-white">Company</h4>
                             <a href=""><i class="fas fa-angle-right me-2"></i> About</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Careers</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Blog</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Press</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Gift Cards</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Magazine</a>

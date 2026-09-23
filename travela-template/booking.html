@@ -4,6 +4,10 @@
     <head>
         <meta charset="utf-8">
         <title>Aqua Trip Hurghada - Tourism Website Template</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -43,7 +47,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <img src="img/logo-animation.webp" class="navbar-logo-video" alt="Aqua Trip Hurghada">
+                    <img data-src="img/logo-animation.webp" class="navbar-logo-video" alt="Aqua Trip Hurghada"><script>(function(){var i=document.currentScript.previousElementSibling;i.src=i.getAttribute('data-src')+'?r='+Date.now();})();</script>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -127,31 +131,18 @@
         </div>
         <!-- Navbar & Hero End -->
 
-        <!-- Header Start -->
-        <div class="container-fluid bg-breadcrumb">
-            <div class="container text-center py-5" style="max-width: 900px;">
-                <h3 class="text-white display-3 mb-4">Online Booking</h1>
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active text-white">Online Booking</li>
-                </ol>
-            </div>
-        </div>
-        <!-- Header End -->
-
         <!-- Tour Booking Start -->
-        <div class="container-fluid booking py-5">
+        <div class="container-fluid booking py-5 no-header-offset">
             <div class="container py-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
-                        <h5 class="section-booking-title pe-3">Booking</h5>
-                        <h1 class="text-white mb-4">Online Booking</h1>
-                        <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur maxime ullam esse fuga blanditiis accusantium pariatur quis sapiente, veniam doloribus praesentium? Repudiandae iste voluptatem fugiat doloribus quasi quo iure officia.
+                        <h5 class="section-booking-title pe-3">Welcome</h5>
+                        <h1 class="text-white mb-4">We're Happy to Have You Here!</h1>
+                        <p class="text-white mb-4">Thank you for choosing Aqua Trip Hurghada. Whether it's your first time in Hurghada or you're a returning explorer, we're here to make your trip unforgettable — from snorkeling with dolphins to island hopping on the Red Sea.
                         </p>
-                        <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur maxime ullam esse fuga blanditiis accusantium pariatur quis sapiente, veniam doloribus praesentium? Repudiandae iste voluptatem fugiat doloribus quasi quo iure officia.
+                        <p class="text-white mb-4">Fill out the form and our team will get back to you shortly to confirm every detail of your adventure.
                         </p>
-                        <a href="#" class="btn btn-light text-primary rounded-pill py-3 px-5 mt-2">Read More</a>
+                        <a href="contact.html" class="btn btn-light text-primary rounded-pill py-3 px-5 mt-2">Contact Us</a>
                     </div>
                     <div class="col-lg-6">
                         <h1 class="text-white mb-3">Book A Tour Deals</h1>
@@ -233,6 +224,89 @@
         </div>
         <!-- Tour Booking End -->
 
+        <!-- Transfer Fees Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-5" style="max-width: 700px;">
+                    <h5 class="section-title px-3">External Transfer Policy</h5>
+                    <h1 class="mb-3">Hotel Transfer Fees</h1>
+                    <p class="mb-0">For hotels located outside Hurghada, an additional transfer fee applies to cover the extra pickup distance.</p>
+                </div>
+                <div class="row g-3 justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="d-flex align-items-center justify-content-between bg-light rounded p-4 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-map-marker-alt fa-lg text-primary me-3"></i>
+                                <span class="fw-bold">Makadi Bay &amp; Sahl Hasheesh</span>
+                            </div>
+                            <span class="btn btn-warning rounded-pill px-4 py-2 fw-bold text-dark">+150 EGP</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between bg-light rounded p-4 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-map-marker-alt fa-lg text-primary me-3"></i>
+                                <span class="fw-bold">Safaga &amp; El Gouna</span>
+                            </div>
+                            <span class="btn btn-warning rounded-pill px-4 py-2 fw-bold text-dark">+250 EGP</span>
+                        </div>
+                        <p class="text-center text-muted mb-0 mt-4">Applies to transfers outside the standard Hurghada pickup area.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Transfer Fees End -->
+
+        <!-- Choose Tours Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                    <h5 class="section-title px-3"><i class="fas fa-plus me-2"></i>Service</h5>
+                    <h1 class="mb-0">Choose our tours and enjoy them now!</h1>
+                </div>
+                <div class="d-flex flex-wrap justify-content-center tour-choose-nav">
+                    <a href="tour.html" class="tour-card active">
+                        <span class="tour-card-badge">01</span>
+                        <span class="tour-card-icon"><i class="fas fa-ship"></i></span>
+                        <span class="tour-card-label">Island getaways</span>
+                    </a>
+                    <a href="tour.html" class="tour-card">
+                        <span class="tour-card-badge">02</span>
+                        <span class="tour-card-icon"><i class="fas fa-swimmer"></i></span>
+                        <span class="tour-card-label">Freediving</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .tour-choose-nav { gap: 24px; row-gap: 24px; }
+            .tour-card {
+                position: relative; display: flex; flex-direction: column; align-items: center;
+                justify-content: center; width: 170px; min-height: 130px; padding: 30px 16px 20px;
+                background: #fff; border: 1px solid #e9edf3; border-radius: 14px;
+                text-decoration: none; transition: .3s;
+            }
+            .tour-card-badge {
+                position: absolute; top: -14px; left: -14px; width: 32px; height: 32px;
+                border-radius: 50%; background: #eef1f6; color: var(--bs-dark);
+                font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center;
+            }
+            .tour-card-icon { font-size: 26px; color: var(--bs-primary); margin-bottom: 12px; transition: .3s; }
+            .tour-card-label { font-weight: 600; color: var(--bs-dark); text-align: center; transition: .3s; }
+            .tour-card.active {
+                background: var(--bs-primary); border-color: var(--bs-primary);
+                box-shadow: 0 15px 30px rgba(0,0,0,.15); transform: translateY(-6px);
+            }
+            .tour-card.active .tour-card-badge { background: var(--bs-secondary); color: #fff; }
+            .tour-card.active .tour-card-icon,
+            .tour-card.active .tour-card-label { color: #fff; }
+            @media (max-width: 575px) {
+                .tour-card { width: 105px; min-height: 100px; padding: 22px 8px 14px; }
+                .tour-card-icon { font-size: 20px; margin-bottom: 8px; }
+                .tour-card-label { font-size: 12px; }
+                .tour-card-badge { width: 24px; height: 24px; font-size: 10px; top: -10px; left: -10px; }
+            }
+        </style>
+        <!-- Choose Tours End -->
+
         <!-- Subscribe Start -->
         <div class="container-fluid subscribe py-5">
             <div class="container text-center py-5">
@@ -275,7 +349,6 @@
                             <h4 class="mb-4 text-white">Company</h4>
                             <a href=""><i class="fas fa-angle-right me-2"></i> About</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Careers</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Blog</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Press</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Gift Cards</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Magazine</a>

@@ -4,6 +4,10 @@
     <head>
         <meta charset="utf-8">
         <title>Aqua Trip Hurghada - Tourism Website Template</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -43,7 +47,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <img src="img/logo-animation.webp" class="navbar-logo-video" alt="Aqua Trip Hurghada">
+                    <img data-src="img/logo-animation.webp" class="navbar-logo-video" alt="Aqua Trip Hurghada"><script>(function(){var i=document.currentScript.previousElementSibling;i.src=i.getAttribute('data-src')+'?r='+Date.now();})();</script>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -141,141 +145,61 @@
         <!-- Header End -->
 
         <!-- Packages Start -->
-        <div class="container-fluid packages py-5">
+        <div class="container-fluid tours-featured py-5">
             <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Packages</h5>
-                    <h1 class="mb-0">Awesome Packages</h1>
+                <div class="text-center mb-5">
+                    <span class="tours-eyebrow"><i class="fa fa-compass me-2"></i>FEATURED TOURS</span>
+                    <h1 class="mt-3 mb-0">Most Popular Tours in Hurghada</h1>
                 </div>
-                <div class="packages-carousel owl-carousel">
-                    <div class="packages-item">
-                        <div class="packages-img">
-                            <img src="img/packages-4.jpg" class="img-fluid w-100 rounded-top" alt="Image">
-                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$349.00</div>
-                        </div>
-                        <div class="packages-content bg-light">
-                            <div class="p-4 pb-0">
-                                <h5 class="mb-0">Venice - Italy</h5>
-                                <small class="text-uppercase">Hotel Deals</small>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                </div>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                            </div>
-                            <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="tour-card">
+                            <img src="img/packages-1.jpg" class="tour-card-img" alt="Hula Hula Beach Island">
+                            <div class="tour-card-body">
+                                <h5 class="tour-card-title">Hula Hula Beach Island</h5>
+                                <span class="tour-duration"><i class="fa fa-clock me-1"></i>6 Hours</span>
+                                <div class="tour-card-footer">
+                                    <div><small class="text-muted d-block">From</small><span class="tour-price">$25</span></div>
+                                    <a href="booking.html" class="btn btn-primary rounded-pill px-4">See Details</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="packages-item">
-                        <div class="packages-img">
-                            <img src="img/packages-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
-                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$449.00</div>
-                        </div>
-                        <div class="packages-content bg-light">
-                            <div class="p-4 pb-0">
-                                <h5 class="mb-0">The New California</h5>
-                                <small class="text-uppercase">Hotel Deals</small>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                </div>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                            </div>
-                            <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="tour-card">
+                            <img src="img/packages-2.jpg" class="tour-card-img" alt="Giftun Island Snorkeling Trip">
+                            <div class="tour-card-body">
+                                <h5 class="tour-card-title">Giftun Island Snorkeling Trip</h5>
+                                <span class="tour-duration"><i class="fa fa-clock me-1"></i>7 Hours</span>
+                                <div class="tour-card-footer">
+                                    <div><small class="text-muted d-block">From</small><span class="tour-price">$30</span></div>
+                                    <a href="booking.html" class="btn btn-primary rounded-pill px-4">See Details</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="packages-item">
-                        <div class="packages-img">
-                            <img src="img/packages-3.jpg" class="img-fluid w-100 rounded-top" alt="Image">
-                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$549.00</div>
-                        </div>
-                        <div class="packages-content bg-light">
-                            <div class="p-4 pb-0">
-                                <h5 class="mb-0">Discover Japan</h5>
-                                <small class="text-uppercase">Hotel Deals</small>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                </div>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                            </div>
-                            <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="tour-card">
+                            <img src="img/packages-3.jpg" class="tour-card-img" alt="Orange Bay Boat Trip">
+                            <div class="tour-card-body">
+                                <h5 class="tour-card-title">Orange Bay Boat Trip</h5>
+                                <span class="tour-duration"><i class="fa fa-clock me-1"></i>8 Hours</span>
+                                <div class="tour-card-footer">
+                                    <div><small class="text-muted d-block">From</small><span class="tour-price">$28</span></div>
+                                    <a href="booking.html" class="btn btn-primary rounded-pill px-4">See Details</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="packages-item">
-                        <div class="packages-img">
-                            <img src="img/packages-1.jpg" class="img-fluid w-100 rounded-top" alt="Image">
-                            <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Thayland</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$649.00</div>
-                        </div>
-                        <div class="packages-content bg-light">
-                            <div class="p-4 pb-0">
-                                <h5 class="mb-0">Thayland Trip</h5>
-                                <small class="text-uppercase">Hotel Deals</small>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                </div>
-                                <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
-                            </div>
-                            <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="tour-card">
+                            <img src="img/packages-4.jpg" class="tour-card-img" alt="Dolphin &amp; Snorkeling Trip">
+                            <div class="tour-card-body">
+                                <h5 class="tour-card-title">Dolphin &amp; Snorkeling Trip</h5>
+                                <span class="tour-duration"><i class="fa fa-clock me-1"></i>4 Hours</span>
+                                <div class="tour-card-footer">
+                                    <div><small class="text-muted d-block">From</small><span class="tour-price">$35</span></div>
+                                    <a href="booking.html" class="btn btn-primary rounded-pill px-4">See Details</a>
                                 </div>
                             </div>
                         </div>
@@ -420,7 +344,6 @@
                             <h4 class="mb-4 text-white">Company</h4>
                             <a href=""><i class="fas fa-angle-right me-2"></i> About</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Careers</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Blog</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Press</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Gift Cards</a>
                             <a href=""><i class="fas fa-angle-right me-2"></i> Magazine</a>
