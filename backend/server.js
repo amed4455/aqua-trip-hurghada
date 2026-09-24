@@ -1,17 +1,9 @@
 require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const store = require('./store');
+const { app, ready, errorHandler } = require('./app');
 const { client, state, sendMessage } = require('./bot');
 
-const app = express();
 const PORT = process.env.PORT || 3001;
 const OWNER_NUMBER = process.env.OWNER_NUMBER;
-const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || '*';
-
-app.use(cors({ origin: FRONTEND_ORIGIN }));
-app.use(express.json());
-app.use('/api', require('./auth'));
 
 // الفرونت اند بيسأل هنا هل البوت متصل ولا لسه
 app.get('/api/status', (req, res) => {
@@ -47,15 +39,11 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// أي راوت بعت الخطأ لـ next(err) بيوصل هنا
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({ error: 'server_error' });
-});
+app.use(errorHandler);
 
 const whatsappEnabled = Boolean(process.env.WWEBJS_AUTH_PATH) || process.env.ENABLE_WHATSAPP === 'true';
 
-store.ready
+ready
   .then(() => {
     app.listen(PORT, () => {
       console.log(`الباك اند شغال على http://localhost:${PORT}`);

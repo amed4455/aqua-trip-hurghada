@@ -136,21 +136,88 @@
             <div class="container py-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
-                        <img src="img/destination-5.jpg" class="img-fluid w-100 rounded" alt="Aqua Trip Hurghada">
+                        <div class="aqua-gallery-slider mx-auto mt-4 mt-lg-0" id="aquaGallerySlider">
+                            <div class="aqua-gallery-frame">
+                                <img src="img/gallery-aqua-1.jpg" class="aqua-gallery-slide active" alt="Aqua Trip Hurghada">
+                                <img src="img/gallery-aqua-2.jpg" class="aqua-gallery-slide" alt="Aqua Trip Hurghada">
+                                <img src="img/gallery-aqua-3.jpg" class="aqua-gallery-slide" alt="Aqua Trip Hurghada">
+                                <img src="img/gallery-aqua-4.jpg" class="aqua-gallery-slide" alt="Aqua Trip Hurghada">
+                                <img src="img/gallery-aqua-5.jpg" class="aqua-gallery-slide" alt="Aqua Trip Hurghada">
+                                <img src="img/gallery-aqua-6.jpg" class="aqua-gallery-slide" alt="Aqua Trip Hurghada">
+                                <div class="aqua-gallery-dots">
+                                    <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                                <button type="button" class="aqua-gallery-arrow aqua-gallery-prev" aria-label="Previous photo"><i class="fa fa-chevron-left"></i></button>
+                                <button type="button" class="aqua-gallery-arrow aqua-gallery-next" aria-label="Next photo"><i class="fa fa-chevron-right"></i></button>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-6">
-                        <h5 class="section-title px-3">Aqua Trip Hurghada</h5>
+                        <h5 class="section-title px-3">External Transfer Policy 🚐</h5>
                         <h1 class="mb-3">A Private Beach Escape on the Red Sea</h1>
                         <p class="mb-4">Sail out to Aqua Trip Hurghada, a private beach retreat just off the Hurghada coast, for a relaxed day of swimming, sunbathing and snorkeling in calm turquoise water. The trip includes round-trip boat transport, a sun lounger on the beach and free time to explore the island's coral shallows before heading back to the marina.</p>
-                        <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
-                            <span class="d-inline-flex align-items-center gap-2 border rounded px-3 py-2"><i class="fa fa-clock text-primary"></i> 7 Hours</span>
-                            <span class="d-inline-flex align-items-center gap-2 border rounded px-3 py-2"><i class="fa fa-tag text-primary"></i> From €60</span>
+                        <div class="d-flex align-items-start gap-2 mb-4">
+                            <i class="fa fa-shuttle-van text-primary mt-1"></i>
+                            <p class="mb-0"><strong>For hotels located outside Hurghada, an additional transfer fee applies.</strong> Our transfer is safe and fast — licensed drivers, air-conditioned vehicles and a fixed pickup schedule get you straight from your hotel to the marina with no waiting around. It's also better value than grabbing a taxi or booking a ride through a ride-hailing app: one flat fee for the whole group, no surge pricing, no haggling, and a driver who already knows your hotel and your tour time.</p>
                         </div>
                         <a href="booking.html" class="btn btn-primary rounded-pill py-3 px-5">Book This Tour</a>
                     </div>
                 </div>
             </div>
         </div>
+        <style>
+            .aqua-gallery-slider {
+                position: relative; width: 100%; max-width: 420px; aspect-ratio: 9 / 16; box-sizing: border-box;
+                border-radius: 24px; overflow: hidden; background: #fff;
+                padding-top: 64px;
+            }
+            .aqua-gallery-frame { position: relative; width: 100%; height: 100%; border-radius: 16px 16px 0 0; overflow: hidden; }
+            .aqua-gallery-slide {
+                position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+                opacity: 0; transition: opacity 1.2s ease-in-out;
+            }
+            .aqua-gallery-slide.active { opacity: 1; }
+            .aqua-gallery-dots {
+                position: absolute; bottom: 16px; left: 0; right: 0; z-index: 2;
+                display: flex; justify-content: center; gap: 6px;
+            }
+            .aqua-gallery-dots span {
+                width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.5); transition: background .3s;
+            }
+            .aqua-gallery-dots span.active { background: #fff; }
+            .aqua-gallery-arrow {
+                position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+                width: 40px; height: 40px; border-radius: 50%; border: none;
+                background: rgba(0,0,0,.35); color: #fff; display: flex; align-items: center; justify-content: center;
+                cursor: pointer; transition: background .2s;
+            }
+            .aqua-gallery-arrow:hover { background: rgba(0,0,0,.55); }
+            .aqua-gallery-prev { left: 12px; }
+            .aqua-gallery-next { right: 12px; }
+        </style>
+        <script>
+            (function () {
+                var slider = document.getElementById('aquaGallerySlider');
+                var slides = slider.querySelectorAll('.aqua-gallery-slide');
+                var dots = slider.querySelectorAll('.aqua-gallery-dots span');
+                var idx = 0;
+                if (!slides.length) return;
+                function goTo(newIdx) {
+                    slides[idx].classList.remove('active');
+                    dots[idx].classList.remove('active');
+                    idx = (newIdx + slides.length) % slides.length;
+                    slides[idx].classList.add('active');
+                    dots[idx].classList.add('active');
+                }
+                var timer = setInterval(function () { goTo(idx + 1); }, 3000);
+                function restart() {
+                    clearInterval(timer);
+                    timer = setInterval(function () { goTo(idx + 1); }, 3000);
+                }
+                slider.querySelector('.aqua-gallery-prev').addEventListener('click', function () { goTo(idx - 1); restart(); });
+                slider.querySelector('.aqua-gallery-next').addEventListener('click', function () { goTo(idx + 1); restart(); });
+            })();
+        </script>
         <!-- Tour Details End -->
 
         <!-- Footer Start -->

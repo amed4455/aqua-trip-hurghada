@@ -156,22 +156,35 @@ router.post('/auth/verify', rateLimit(20, 60 * 1000), async (req, res, next) => 
 
 /* ---------- Social sign-in (Google / Facebook) ---------- */
 const OAUTH_STATE_TTL_MS = 10 * 60 * 1000;
-const oauthStates = new Map();
 const FRONTEND_URL = (process.env.FRONTEND_URL || 'http://localhost:8082').replace(/\/$/, '');
 const PUBLIC_BACKEND_URL = (process.env.PUBLIC_BACKEND_URL || `http://localhost:${process.env.PORT || 4001}`).replace(/\/$/, '');
 
-function createOAuthState(returnPath) {
-  const nonce = crypto.randomBytes(16).toString('hex');
-  oauthStates.set(nonce, { returnPath, expiresAt: Date.now() + OAUTH_STATE_TTL_MS });
-  if (oauthStates.size > 5000) oauthStates.clear();
-  return nonce;
+// الـ state بتاع OAuth بقى توكن موقّع (HMAC) بدل ما يتخزن في الرام، عشان يشتغل صح
+// على استضافة serverless (زي Vercel) اللي ممكن تبعت كل ريكوست لنسخة سيرفر مختلفة
+function oauthStateKey() {
+  return process.env.GOOGLE_CLIENT_SECRET || process.env.FACEBOOK_APP_SECRET || 'dev-oauth-state-secret';
 }
 
-function consumeOAuthState(nonce) {
-  const entry = oauthStates.get(nonce);
-  if (!entry) return null;
-  oauthStates.delete(nonce);
-  return entry.expiresAt >= Date.now() ? entry : null;
+function createOAuthState(returnPath) {
+  const payload = { returnPath, expiresAt: Date.now() + OAUTH_STATE_TTL_MS };
+  const body = Buffer.from(JSON.stringify(payload)).toString('base64url');
+  const sig = crypto.createHmac('sha256', oauthStateKey()).update(body).digest('base64url');
+  return `${body}.${sig}`;
+}
+
+function consumeOAuthState(token) {
+  if (typeof token !== 'string' || !token.includes('.')) return null;
+  const [body, sig] = token.split('.');
+  const expectedSig = crypto.createHmac('sha256', oauthStateKey()).update(body).digest('base64url');
+  const sigBuf = Buffer.from(sig || '');
+  const expectedBuf = Buffer.from(expectedSig);
+  if (sigBuf.length !== expectedBuf.length || !crypto.timingSafeEqual(sigBuf, expectedBuf)) return null;
+  try {
+    const payload = JSON.parse(Buffer.from(body, 'base64url').toString('utf8'));
+    return payload.expiresAt >= Date.now() ? payload : null;
+  } catch {
+    return null;
+  }
 }
 
 // بيمنع الـ open redirect: يقبل بس مسار محلي زي /index.html

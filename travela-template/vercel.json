@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://aqua-trip-backend.onrender.com/api/:path*" }
+    { "source": "/api/:path*", "destination": "https://aqua-trip-api.vercel.app/api/:path*" }
   ]
 }
