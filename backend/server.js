@@ -53,12 +53,20 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'server_error' });
 });
 
+const whatsappEnabled = Boolean(process.env.WWEBJS_AUTH_PATH) || process.env.ENABLE_WHATSAPP === 'true';
+
 store.ready
   .then(() => {
     app.listen(PORT, () => {
       console.log(`الباك اند شغال على http://localhost:${PORT}`);
     });
-    client.initialize();
+    if (whatsappEnabled) {
+      client.initialize().catch((err) => {
+        console.error('فشل تشغيل بوت الواتساب (السيرفر فاضل شغال عادي من غيره):', err.message);
+      });
+    } else {
+      console.log('بوت الواتساب متعطل (مفيش WWEBJS_AUTH_PATH ولا ENABLE_WHATSAPP=true) — فورم "تواصل معنا" مش هيبعت واتساب لحد ما يتفعل.');
+    }
   })
   .catch((err) => {
     console.error('فشل الاتصال بقاعدة بيانات MySQL — تأكد من إعدادات DB_HOST/DB_USER/DB_PASSWORD/DB_NAME في .env:', err.message);
