@@ -18,8 +18,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
 
         <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <style>
+            /* RemixIcon has no fa-Nx size classes; keep the sizes this page already relies on */
+            .fa-2x { font-size: 2em; }
+            .fa-4x { font-size: 4em; }
+        </style>
 
         <!-- Libraries Stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
@@ -51,7 +56,7 @@
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
+                    <span class="ri-menu-line"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="nav-right ms-auto">
@@ -59,22 +64,22 @@
             <div class="row gx-0">
                 <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="ri-facebook-fill fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="ri-instagram-fill fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="" title="Booking.com"><b>B.</b></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.tripadvisor.com/Profile/aquatriphur96" target="_blank" rel="noopener" title="TripAdvisor"><img src="img/tripadvisor-owl-blue.png" alt="TripAdvisor" style="width:16px;height:16px;flex:none;max-width:none;object-fit:contain;"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center text-lg-end">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
-                        <a href="#" id="mhRegister"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
-                        <a href="#" id="mhLogin"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Login</small></a>
+                        <a href="#" id="mhRegister"><small class="me-3 text-light"><i class="ri-user-line me-2"></i>Register</small></a>
+                        <a href="#" id="mhLogin"><small class="me-3 text-light"><i class="ri-login-box-line me-2"></i>Login</small></a>
                         <div class="dropdown">
-                            <a href="#" id="mhDashToggle" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i class="fa fa-home me-2"></i> My Dashboard</small></a>
+                            <a href="#" id="mhDashToggle" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i class="ri-home-line me-2"></i> My Dashboard</small></a>
                             <div class="dropdown-menu rounded">
-                                <a href="#" class="dropdown-item" data-mh="profile"><i class="fas fa-user-alt me-2"></i> My Profile</a>
-                                <a href="#" class="dropdown-item" data-mh="bookings"><i class="fas fa-calendar-check me-2"></i> My Bookings</a>
-                                <a href="#" class="dropdown-item" data-mh="logout"><i class="fas fa-power-off me-2"></i> Log Out</a>
+                                <a href="#" class="dropdown-item" data-mh="profile"><i class="ri-user-fill me-2"></i> My Profile</a>
+                                <a href="#" class="dropdown-item" data-mh="bookings"><i class="ri-calendar-check-fill me-2"></i> My Bookings</a>
+                                <a href="#" class="dropdown-item" data-mh="logout"><i class="ri-shut-down-fill me-2"></i> Log Out</a>
                             </div>
                         </div>
                     </div>
@@ -219,22 +224,22 @@
                         <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos voluptatem suscipit neque enim, doloribus ipsum rem eos distinctio, dignissimos nisi saepe nulla? Libero numquam perferendis provident placeat molestiae quia?</p>
                         <div class="row gy-2 gx-4 mb-4">
                             <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>First Class Flights</p>
+                                <p class="mb-0"><i class="ri-arrow-right-line text-primary me-2"></i>First Class Flights</p>
                             </div>
                             <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Handpicked Hotels</p>
+                                <p class="mb-0"><i class="ri-arrow-right-line text-primary me-2"></i>Handpicked Hotels</p>
                             </div>
                             <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>5 Star Accommodations</p>
+                                <p class="mb-0"><i class="ri-arrow-right-line text-primary me-2"></i>5 Star Accommodations</p>
                             </div>
                             <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest Model Vehicles</p>
+                                <p class="mb-0"><i class="ri-arrow-right-line text-primary me-2"></i>Latest Model Vehicles</p>
                             </div>
                             <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City Tours</p>
+                                <p class="mb-0"><i class="ri-arrow-right-line text-primary me-2"></i>150 Premium City Tours</p>
                             </div>
                             <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                                <p class="mb-0"><i class="ri-arrow-right-line text-primary me-2"></i>24/7 Service</p>
                             </div>
                         </div>
                         <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Read More</a>
@@ -255,7 +260,7 @@
                     <div class="col-md-6">
                         <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
                             <div class="service-icon p-4">
-                                <i class="fa fa-globe fa-4x text-primary"></i>
+                                <i class="ri-global-line fa-4x text-primary"></i>
                             </div>
                             <div class="service-content">
                                 <h5 class="mb-4">WorldWide Tours</h5>
@@ -267,7 +272,7 @@
                     <div class="col-md-6">
                         <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
                             <div class="service-icon p-4">
-                                <i class="fa fa-hotel fa-4x text-primary"></i>
+                                <i class="ri-hotel-line fa-4x text-primary"></i>
                             </div>
                             <div class="service-content">
                                 <h5 class="mb-4">Hotel Reservation</h5>
@@ -279,7 +284,7 @@
                     <div class="col-md-6">
                         <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
                             <div class="service-icon p-4">
-                                <i class="fa fa-user fa-4x text-primary"></i>
+                                <i class="ri-user-line fa-4x text-primary"></i>
                             </div>
                             <div class="service-content">
                                 <h5 class="mb-4">Travel Guides</h5>
@@ -291,7 +296,7 @@
                     <div class="col-md-6">
                         <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
                             <div class="service-icon p-4">
-                                <i class="fa fa-cog fa-4x text-primary"></i>
+                                <i class="ri-settings-line fa-4x text-primary"></i>
                             </div>
                             <div class="service-content">
                                 <h5 class="mb-4">Event Management</h5>
@@ -334,18 +339,18 @@
         <div class="container-fluid py-5 my-5">
             <div class="container">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3"><i class="fas fa-plus me-2"></i>Tours</h5>
+                    <h5 class="section-title px-3"><i class="ri-add-fill me-2"></i>Tours</h5>
                     <h1 class="mb-0">Choose our tours and enjoy them now!</h1>
                 </div>
                 <div class="d-flex flex-wrap justify-content-center tour-choose-nav">
                     <a href="tour.html" class="tour-card active">
                         <span class="tour-card-badge">01</span>
-                        <span class="tour-card-icon"><i class="fas fa-ship"></i></span>
+                        <span class="tour-card-icon"><i class="ri-ship-fill"></i></span>
                         <span class="tour-card-label">Island getaways</span>
                     </a>
                     <a href="tour.html" class="tour-card">
                         <span class="tour-card-badge">02</span>
-                        <span class="tour-card-icon"><i class="fas fa-swimmer"></i></span>
+                        <span class="tour-card-icon"><i class="ri-drop-fill"></i></span>
                         <span class="tour-card-label">Freediving</span>
                     </a>
                 </div>
@@ -394,7 +399,7 @@
         <div class="container-fluid blog py-5" id="blog">
             <div class="container py-5">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3"><i class="fas fa-plus me-2"></i>Featured Tours</h5>
+                    <h5 class="section-title px-3"><i class="ri-add-fill me-2"></i>Featured Tours</h5>
                     <h1 class="mb-0">Most favorite touring location</h1>
                 </div>
                 <div class="row g-4">
@@ -403,7 +408,7 @@
                             <div class="tour-offer-img aqua-trip-story"><img src="img/aqua-trip-fees-card.png" alt="Aqua Trip Hurghada" class="aqua-trip-story-card"></div>
                             <div class="tour-offer-body">
                                 <h5>External Transfer Policy 🚐</h5>
-                                <div class="tour-offer-duration"><i class="fa fa-clock"></i> 7 Hours</div>
+                                <div class="tour-offer-duration"><i class="ri-time-line"></i> 7 Hours</div>
                                 <div class="tour-offer-footer">
                                     <div><span class="tour-offer-from">From</span><div class="tour-offer-price">€60</div></div>
                                     <a href="tour.html#aqua-trip-hurghada" class="btn btn-primary rounded-pill px-4 py-2">See details</a>
@@ -416,7 +421,7 @@
                             <div class="tour-offer-img"><img src="img/explore-tour-5.jpg" alt="Mahmya Island: Red Sea Sailing Experience"></div>
                             <div class="tour-offer-body">
                                 <h5>Mahmya Island: Red Sea Sailing Experience</h5>
-                                <div class="tour-offer-duration"><i class="fa fa-clock"></i> 8 Hours</div>
+                                <div class="tour-offer-duration"><i class="ri-time-line"></i> 8 Hours</div>
                                 <div class="tour-offer-footer">
                                     <div><span class="tour-offer-from">From</span><div class="tour-offer-price">€81.02</div></div>
                                     <a href="tour.html" class="btn btn-primary rounded-pill px-4 py-2">See details</a>
@@ -429,7 +434,7 @@
                             <div class="tour-offer-img"><img src="img/explore-tour-2.jpg" alt="Hurghada: Underwater cruise aboard the Royal Seascope with a snorkeling stop"></div>
                             <div class="tour-offer-body">
                                 <h5>Hurghada: Underwater cruise aboard the Royal Seascope with a snorkeling stop</h5>
-                                <div class="tour-offer-duration"><i class="fa fa-clock"></i> 2 Hours</div>
+                                <div class="tour-offer-duration"><i class="ri-time-line"></i> 2 Hours</div>
                                 <div class="tour-offer-footer">
                                     <div><span class="tour-offer-from">From</span><div class="tour-offer-price">€17.06</div></div>
                                     <a href="tour.html" class="btn btn-primary rounded-pill px-4 py-2">See details</a>
@@ -442,7 +447,7 @@
                             <div class="tour-offer-img"><img src="img/destination-6.jpg" alt="Hurghada: Boat trip to Orange Bay Island with breakfast and lunch"></div>
                             <div class="tour-offer-body">
                                 <h5>Hurghada: Boat trip to Orange Bay Island with breakfast and lunch</h5>
-                                <div class="tour-offer-duration"><i class="fa fa-clock"></i> 7 Hours</div>
+                                <div class="tour-offer-duration"><i class="ri-time-line"></i> 7 Hours</div>
                                 <div class="tour-offer-footer">
                                     <div><span class="tour-offer-from">From</span><div class="tour-offer-price">€26.44</div></div>
                                     <a href="tour.html" class="btn btn-primary rounded-pill px-4 py-2">See details</a>
@@ -455,7 +460,7 @@
                             <div class="tour-offer-img"><img src="img/destination-4.jpg" alt="Hurghada: Jeep Safari, Quad Biking, Buggy Tour, Camel Ride and Barbecue Dinner"></div>
                             <div class="tour-offer-body">
                                 <h5>Hurghada: Jeep Safari, Quad Biking, Buggy Tour, Camel Ride and Barbecue Dinner</h5>
-                                <div class="tour-offer-duration"><i class="fa fa-clock"></i> 8 Hours</div>
+                                <div class="tour-offer-duration"><i class="ri-time-line"></i> 8 Hours</div>
                                 <div class="tour-offer-footer">
                                     <div><span class="tour-offer-from">From</span><div class="tour-offer-price">€33.09</div></div>
                                     <a href="tour.html" class="btn btn-primary rounded-pill px-4 py-2">See details</a>
@@ -468,7 +473,7 @@
                             <div class="tour-offer-img"><img src="img/gallery-1.jpg" alt="Hurghada: Dolphin World show with walruses and pickup trucks"></div>
                             <div class="tour-offer-body">
                                 <h5>Hurghada: Dolphin World show with walruses and pickup trucks</h5>
-                                <div class="tour-offer-duration"><i class="fa fa-clock"></i> 1 Hour</div>
+                                <div class="tour-offer-duration"><i class="ri-time-line"></i> 1 Hour</div>
                                 <div class="tour-offer-footer">
                                     <div><span class="tour-offer-from">From</span><div class="tour-offer-price">€20</div></div>
                                     <a href="tour.html" class="btn btn-primary rounded-pill px-4 py-2">See details</a>
@@ -515,11 +520,11 @@
                     <h1 class="mb-2">Hotel Transfer Fees</h1>
                     <p class="mb-4">For hotels located outside Hurghada</p>
                     <div class="d-flex align-items-center justify-content-between bg-white rounded p-3 mb-3">
-                        <span class="fw-bold text-dark"><i class="fa fa-map-marker-alt me-2" style="color:#1AA6B0"></i>Makadi Bay &amp; Sahl Hasheesh</span>
+                        <span class="fw-bold text-dark"><i class="ri-map-pin-line me-2" style="color:#1AA6B0"></i>Makadi Bay &amp; Sahl Hasheesh</span>
                         <span class="btn btn-warning rounded-pill px-4 py-2 fw-bold text-dark">+350 EGP</span>
                     </div>
                     <div class="d-flex align-items-center justify-content-between bg-white rounded p-3 mb-3">
-                        <span class="fw-bold text-dark"><i class="fa fa-map-marker-alt me-2" style="color:#1AA6B0"></i>Safaga &amp; El Gouna</span>
+                        <span class="fw-bold text-dark"><i class="ri-map-pin-line me-2" style="color:#1AA6B0"></i>Safaga &amp; El Gouna</span>
                         <span class="btn btn-warning rounded-pill px-4 py-2 fw-bold text-dark">+400 EGP</span>
                     </div>
                     <p class="text-center mb-0 mt-3">Applies to transfers outside the standard Hurghada pickup area.</p>
@@ -575,11 +580,11 @@
                             <h5 class="mb-0">Laura Meyer</h5>
                             <p class="mb-0">Berlin, Germany</p>
                             <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
                             </div>
                         </div>
                     </div>
@@ -595,11 +600,11 @@
                             <h5 class="mb-0">James Whitfield</h5>
                             <p class="mb-0">Manchester, UK</p>
                             <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
                             </div>
                         </div>
                     </div>
@@ -615,11 +620,11 @@
                             <h5 class="mb-0">Elena Petrova</h5>
                             <p class="mb-0">Warsaw, Poland</p>
                             <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="far fa-star text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-line text-primary"></i>
                             </div>
                         </div>
                     </div>
@@ -635,11 +640,11 @@
                             <h5 class="mb-0">Omar Al-Sayed</h5>
                             <p class="mb-0">Cairo, Egypt</p>
                             <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
+                                <i class="ri-star-fill text-primary"></i>
                             </div>
                         </div>
                     </div>
@@ -668,14 +673,14 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="mb-4 text-white">Get In Touch</h4>
-                            <a href=""><i class="fas fa-home me-2"></i> 123 Street, New York, USA</a>
-                            <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
-                            <a href="https://wa.me/201008933302" target="_blank" rel="noopener"><i class="fab fa-whatsapp me-2"></i> +20 100 893 3302</a>
-                            <a href="https://wa.me/201060300200" target="_blank" rel="noopener" class="mb-3"><i class="fab fa-whatsapp me-2"></i> +20 106 030 0200</a>
+                            <a href=""><i class="ri-home-fill me-2"></i> 123 Street, New York, USA</a>
+                            <a href=""><i class="ri-mail-fill me-2"></i> info@example.com</a>
+                            <a href="https://wa.me/201008933302" target="_blank" rel="noopener"><i class="ri-whatsapp-fill me-2"></i> +20 100 893 3302</a>
+                            <a href="https://wa.me/201060300200" target="_blank" rel="noopener" class="mb-3"><i class="ri-whatsapp-fill me-2"></i> +20 106 030 0200</a>
                             <div class="d-flex align-items-center">
-                                <i class="fas fa-share fa-2x text-white me-2"></i>
-                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <i class="ri-share-fill fa-2x text-white me-2"></i>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="ri-facebook-fill"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="ri-instagram-fill"></i></a>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href="" title="Booking.com"><b>B.</b></a>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.tripadvisor.com/Profile/aquatriphur96" target="_blank" rel="noopener" title="TripAdvisor"><img src="img/tripadvisor-owl.png" alt="TripAdvisor" style="width:20px;height:20px;flex:none;max-width:none;object-fit:contain;"></a>
                             </div>
@@ -684,22 +689,22 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="mb-4 text-white">Company</h4>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> About</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Careers</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Press</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Gift Cards</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Magazine</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> About</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Careers</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Press</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Gift Cards</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Magazine</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="mb-4 text-white">Support</h4>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Contact</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Legal Notice</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Terms and Conditions</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Sitemap</a>
-                            <a href=""><i class="fas fa-angle-right me-2"></i> Cookie policy</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Contact</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Legal Notice</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Privacy Policy</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Terms and Conditions</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Sitemap</a>
+                            <a href=""><i class="ri-arrow-right-s-fill me-2"></i> Cookie policy</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
@@ -734,12 +739,12 @@
                             </div>
                             <h4 class="text-white mb-3">Payments</h4>
                             <div class="footer-bank-card">
-                                <a href="#" class="text-white me-2"><i class="fab fa-cc-amex fa-2x"></i></a>
-                                <a href="#" class="text-white me-2"><i class="fab fa-cc-visa fa-2x"></i></a>
-                                <a href="#" class="text-white me-2"><i class="fas fa-credit-card fa-2x"></i></a>
-                                <a href="#" class="text-white me-2"><i class="fab fa-cc-mastercard fa-2x"></i></a>
-                                <a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
-                                <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>
+                                <a href="#" class="text-white me-2"><i class="ri-bank-card-fill fa-2x"></i></a>
+                                <a href="#" class="text-white me-2"><i class="ri-visa-fill fa-2x"></i></a>
+                                <a href="#" class="text-white me-2"><i class="ri-bank-card-fill fa-2x"></i></a>
+                                <a href="#" class="text-white me-2"><i class="ri-mastercard-fill fa-2x"></i></a>
+                                <a href="#" class="text-white me-2"><i class="ri-paypal-fill fa-2x"></i></a>
+                                <a href="#" class="text-white"><i class="ri-bank-card-fill fa-2x"></i></a>
                             </div>
                         </div>
                     </div>
@@ -753,7 +758,7 @@
             <div class="container">
                 <div class="row g-4 align-items-center justify-content-center">
                     <div class="col-12 text-center">
-                        <i class="fas fa-copyright me-2"></i><a class="text-white" href="index.html">Aqua Trip Hurghada</a>, All rights reserved.
+                        <i class="ri-copyright-fill me-2"></i><a class="text-white" href="index.html">Aqua Trip Hurghada</a>, All rights reserved.
                     </div>
                 </div>
             </div>
@@ -764,16 +769,16 @@
         <div class="device-overlay" id="deviceOverlay">
             <div class="device-frame">
                 <div class="device-notch"></div>
-                <button type="button" class="device-close" id="deviceClose" aria-label="Close preview"><i class="fa fa-times"></i></button>
+                <button type="button" class="device-close" id="deviceClose" aria-label="Close preview"><i class="ri-close-line"></i></button>
                 <iframe id="deviceFrame" title="Mobile preview" src="about:blank"></iframe>
             </div>
         </div>
 
         <!-- WhatsApp Float -->
-        <a href="https://wa.me/201008933302" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/201008933302" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="ri-whatsapp-fill"></i></a>
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="ri-arrow-up-line"></i></a>
 
 
         <!-- JavaScript Libraries -->
