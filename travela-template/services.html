@@ -138,77 +138,184 @@
 
 
         <!-- Services Start -->
-        <div class="container-fluid bg-light service py-5">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Services</h5>
-                    <h1 class="mb-0">Our Services</h1>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                    <div class="service-content text-end">
-                                        <h5 class="mb-4">Boat &amp; Island Excursions</h5>
-                                        <p class="mb-0">Sail out to Hurghada's most beautiful islands, from Mahmya's white-sand beaches to a full day of sun and swimming on Orange Bay, aboard comfortable boats with breakfast and lunch included.
-                                        </p>
-                                    </div>
-                                    <div class="service-icon p-4">
-                                        <i class="ri-ship-line fa-4x text-primary"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0">
-                                    <div class="service-content text-end">
-                                        <h5 class="mb-4">Snorkeling &amp; Diving Trips</h5>
-                                        <p class="mb-0">Explore the Red Sea's coral reefs aboard the Royal Seascope semi-submarine, or head out to Giftun Island for some of the best snorkeling spots on the coast.
-                                        </p>
-                                    </div>
-                                    <div class="service-icon p-4">
-                                        <i class="ri-drop-line fa-4x text-primary"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <style>
+            .aq-svc{
+              --deep:#0C3A42;
+              --lagoon:#1A9AA0;
+              --shallow:#CFEEEA;
+              --foam:#F3FAF9;
+              --sun:#F5C451;
+              --ink:#1D2B2E;
+              --muted:#5B6D70;
+              color:var(--ink);
+              background:var(--foam);
+              padding:clamp(64px,9vw,120px) 20px;
+            }
+            .aq-svc *{box-sizing:border-box}
+            .aq-svc-wrap{max-width:1200px;margin:0 auto}
+            .aq-svc-head{
+              display:flex;justify-content:space-between;align-items:flex-end;
+              gap:24px;flex-wrap:wrap;margin-bottom:44px;
+            }
+            .aq-svc-kicker{font-size:15px;font-weight:600;color:var(--lagoon);margin:0 0 12px}
+            .aq-svc-title{
+              font-family:"Bricolage Grotesque",Georgia,sans-serif;font-weight:700;
+              font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-.02em;
+              color:var(--deep);margin:0;max-width:18ch;
+            }
+            .aq-svc-intro{font-size:17px;line-height:1.65;color:var(--muted);max-width:40ch;margin:0}
+            .aq-svc-grid{
+              display:grid;
+              grid-template-columns:1.25fr 1fr;
+              grid-template-rows:auto auto auto;
+              gap:20px;
+            }
+            .aq-card{
+              position:relative;display:block;overflow:hidden;
+              border-radius:24px;color:#fff;text-decoration:none;
+              background:var(--deep);isolation:isolate;
+            }
+            .aq-card img{
+              position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+              transition:transform .6s ease;
+            }
+            .aq-card::after{
+              content:"";position:absolute;inset:0;z-index:-1;
+              background:linear-gradient(180deg,rgba(12,58,66,0) 30%,rgba(12,58,66,.88) 100%);
+            }
+            .aq-card:hover img{transform:scale(1.04)}
+            .aq-card:focus-visible{outline:3px solid var(--sun);outline-offset:4px}
+            .aq-card-body{
+              position:relative;height:100%;
+              display:flex;flex-direction:column;justify-content:flex-end;
+              padding:28px;
+            }
+            .aq-card h3{
+              font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
+              font-size:26px;line-height:1.1;margin:0 0 10px;letter-spacing:-.01em;
+            }
+            .aq-card p{margin:0;font-size:16px;line-height:1.55;color:#E4F3F1;max-width:46ch}
+            .aq-card-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+            .aq-chip{
+              font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;
+              background:rgba(255,255,255,.16);backdrop-filter:blur(6px);color:#fff;
+            }
+            .aq-card-cta{
+              margin-top:20px;display:inline-flex;align-items:center;gap:8px;
+              font-weight:600;font-size:15px;color:var(--sun);
+            }
+            .aq-card--feature{grid-row:1 / span 2;min-height:560px}
+            .aq-card--side{min-height:270px}
+            .aq-transfer{
+              grid-column:1 / -1;
+              display:grid;grid-template-columns:1.1fr 1fr auto;gap:28px;align-items:center;
+              background:#fff;border-radius:24px;padding:28px 32px;
+              box-shadow:inset 0 0 0 1.5px var(--shallow);
+            }
+            .aq-transfer-icon{
+              width:52px;height:52px;border-radius:16px;background:var(--shallow);color:var(--deep);
+              display:grid;place-items:center;margin-bottom:14px;
+            }
+            .aq-transfer h3{
+              font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:24px;
+              color:var(--deep);margin:0 0 8px;
+            }
+            .aq-transfer p{margin:0;color:var(--muted);font-size:16px;line-height:1.6;max-width:44ch}
+            .aq-prices{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+            .aq-prices li{
+              display:flex;justify-content:space-between;gap:16px;align-items:center;
+              padding:12px 16px;border-radius:14px;background:var(--foam);font-size:15px;
+            }
+            .aq-prices strong{font-weight:600;color:var(--deep);white-space:nowrap}
+            .aq-prices li:first-child strong{color:var(--lagoon)}
+            .aq-svc .aq-btn{
+              display:inline-flex;align-items:center;justify-content:center;gap:10px;
+              padding:15px 26px;border-radius:999px;white-space:nowrap;
+              font:600 16px/1 "Figtree",sans-serif;text-decoration:none;
+              transition:background .2s,box-shadow .2s;
+            }
+            .aq-svc .aq-btn:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+            .aq-svc .aq-btn-primary{background:var(--lagoon);color:#fff}
+            .aq-svc .aq-btn-primary:hover{background:var(--deep);color:#fff}
+            @media (max-width:980px){
+              .aq-transfer{grid-template-columns:1fr 1fr}
+              .aq-transfer .aq-btn{grid-column:1 / -1;justify-self:start}
+            }
+            @media (max-width:760px){
+              .aq-svc-grid{grid-template-columns:1fr}
+              .aq-card--feature{grid-row:auto;min-height:440px}
+              .aq-card--side{min-height:320px}
+              .aq-card::after{background:linear-gradient(180deg,rgba(12,58,66,.05) 0%,rgba(12,58,66,.9) 70%)}
+              .aq-transfer{grid-template-columns:1fr;padding:24px}
+            }
+            @media (prefers-reduced-motion:reduce){
+              .aq-card img,.aq-svc .aq-btn{transition:none}
+              .aq-card:hover img{transform:none}
+            }
+        </style>
+
+        <section class="aq-svc" id="services" aria-labelledby="aq-svc-title">
+            <div class="aq-svc-wrap">
+                <header class="aq-svc-head">
+                    <div>
+                        <p class="aq-svc-kicker">Our services</p>
+                        <h2 class="aq-svc-title" id="aq-svc-title">Sea, reef and desert, all from one team</h2>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                    <div class="service-icon p-4">
-                                        <i class="ri-walk-line fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="service-content">
-                                        <h5 class="mb-4">Desert Safari Adventures</h5>
-                                        <p class="mb-0">Trade the beach for the desert with a Jeep safari, quad biking and camel rides, capped off with a Bedouin-style barbecue dinner under the stars.
-                                        </p>
-                                    </div>
-                                </div>
+                    <p class="aq-svc-intro">Pick a trip, send us your hotel and date on WhatsApp, and we'll take care of the rest.</p>
+                </header>
+
+                <div class="aq-svc-grid">
+                    <a class="aq-card aq-card--feature" href="https://wa.me/201008933302?text=Hi%2C%20I%27d%20like%20to%20book%20a%20boat%20%26%20island%20trip" target="_blank" rel="noopener">
+                        <img src="img/destination-6.jpg" alt="Boat trip to Orange Bay Island" loading="lazy">
+                        <div class="aq-card-body">
+                            <h3>Boat &amp; island excursions</h3>
+                            <p>Sail out to Mahmya's white-sand beaches or spend a full day swimming at Orange Bay, on comfortable boats with breakfast and lunch included.</p>
+                            <div class="aq-card-meta">
+                                <span class="aq-chip">Orange Bay</span>
+                                <span class="aq-chip">Mahmya</span>
+                                <span class="aq-chip">Giftun</span>
+                                <span class="aq-chip">Meals included</span>
                             </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                    <div class="service-icon p-4">
-                                        <i class="ri-bus-line fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="service-content">
-                                        <h5 class="mb-4">Hotel Transfer Service</h5>
-                                        <p class="mb-0">Door-to-door pickup and drop-off from your hotel in Hurghada, Makadi Bay, Sahl Hasheesh, El Gouna or Safaga, arranged directly with our team over WhatsApp.
-                                        </p>
-                                    </div>
-                                </div>
+                            <span class="aq-card-cta">Book this trip
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                    <a class="aq-card aq-card--side" href="https://wa.me/201008933302?text=Hi%2C%20I%27d%20like%20to%20book%20a%20snorkeling%20or%20diving%20trip" target="_blank" rel="noopener">
+                        <img src="img/scuba-diving-reef.jpg" alt="Scuba diver swimming above a colorful coral reef" loading="lazy">
+                        <div class="aq-card-body">
+                            <h3>Snorkeling &amp; diving</h3>
+                            <p>See the coral reefs from the Royal Seascope semi-submarine, or snorkel some of the best spots on the coast at Giftun.</p>
+                        </div>
+                    </a>
+
+                    <a class="aq-card aq-card--side" href="https://wa.me/201008933302?text=Hi%2C%20I%27d%20like%20to%20book%20a%20desert%20safari" target="_blank" rel="noopener">
+                        <img src="img/destination-4.jpg" alt="Jeep safari and camel ride in the desert" loading="lazy">
+                        <div class="aq-card-body">
+                            <h3>Desert safari</h3>
+                            <p>Jeep safari, quad biking and camel rides, finished with a Bedouin barbecue dinner under the stars.</p>
+                        </div>
+                    </a>
+
+                    <div class="aq-transfer">
+                        <div>
+                            <div class="aq-transfer-icon" aria-hidden="true">
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="3"/><path d="M3 11h18M8 17v2M16 17v2"/><circle cx="7.5" cy="14" r=".6" fill="currentColor"/><circle cx="16.5" cy="14" r=".6" fill="currentColor"/></svg>
                             </div>
+                            <h3>Hotel transfer</h3>
+                            <p>Door-to-door pickup and drop-off from your hotel, arranged directly with our team. Fixed prices, no haggling.</p>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="text-center">
-                            <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Service More</a>
-                        </div>
+                        <ul class="aq-prices" aria-label="Transfer prices by area">
+                            <li>Hurghada <strong>Standard pickup</strong></li>
+                            <li>Makadi Bay &amp; Sahl Hasheesh <strong>+350 EGP</strong></li>
+                            <li>Safaga &amp; El Gouna <strong>+400 EGP</strong></li>
+                        </ul>
+                        <a class="aq-btn aq-btn-primary" href="https://wa.me/201008933302?text=Hi%2C%20I%27d%20like%20to%20arrange%20a%20hotel%20transfer" target="_blank" rel="noopener">Arrange pickup</a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- Services End -->
 
         <!-- Testimonial Start -->
