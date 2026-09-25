@@ -144,8 +144,14 @@
                     <span class="tours-eyebrow"><i class="ri-compass-line me-2"></i>FEATURED TOURS</span>
                     <h1 class="mt-3 mb-0">Most Popular Tours in Hurghada</h1>
                 </div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6">
+                <div class="d-flex flex-wrap justify-content-center gap-2 mb-5" id="packagesFilterBar">
+                    <button type="button" class="btn btn-primary rounded-pill px-4 package-filter-btn active" data-category="all">All Tours</button>
+                    <button type="button" class="btn btn-outline-primary rounded-pill px-4 package-filter-btn" data-category="island">Island getaways</button>
+                    <button type="button" class="btn btn-outline-primary rounded-pill px-4 package-filter-btn" data-category="freediving">Freediving</button>
+                    <button type="button" class="btn btn-outline-primary rounded-pill px-4 package-filter-btn" data-category="desert">Desert adventures</button>
+                </div>
+                <div class="row g-4" id="packagesGrid">
+                    <div class="col-lg-3 col-md-6 package-item" data-category="island">
                         <div class="tour-card">
                             <img src="img/packages-1.jpg" class="tour-card-img" alt="Hula Hula Beach Island">
                             <div class="tour-card-body">
@@ -158,7 +164,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 package-item" data-category="freediving">
                         <div class="tour-card">
                             <img src="img/packages-2.jpg" class="tour-card-img" alt="Giftun Island Snorkeling Trip">
                             <div class="tour-card-body">
@@ -171,7 +177,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 package-item" data-category="island">
                         <div class="tour-card">
                             <img src="img/packages-3.jpg" class="tour-card-img" alt="Orange Bay Boat Trip">
                             <div class="tour-card-body">
@@ -184,7 +190,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 package-item" data-category="freediving">
                         <div class="tour-card">
                             <img src="img/packages-4.jpg" class="tour-card-img" alt="Dolphin &amp; Snorkeling Trip">
                             <div class="tour-card-body">
@@ -198,9 +204,51 @@
                         </div>
                     </div>
                 </div>
+                <div class="text-center text-muted mt-4 d-none" id="packagesEmptyState">
+                    No tours in this category yet — <a href="#" data-category="all" class="package-filter-btn">show all tours</a> instead.
+                </div>
             </div>
         </div>
         <!-- Packages End -->
+
+        <script>
+            (function () {
+                var buttons = document.querySelectorAll('.package-filter-btn');
+                var items = document.querySelectorAll('#packagesGrid .package-item');
+                var emptyState = document.getElementById('packagesEmptyState');
+
+                function applyFilter(category) {
+                    var visibleCount = 0;
+                    items.forEach(function (item) {
+                        var match = category === 'all' || item.getAttribute('data-category') === category;
+                        item.classList.toggle('d-none', !match);
+                        if (match) visibleCount++;
+                    });
+                    emptyState.classList.toggle('d-none', visibleCount > 0);
+
+                    document.querySelectorAll('#packagesFilterBar .package-filter-btn').forEach(function (btn) {
+                        var isActive = btn.getAttribute('data-category') === category;
+                        btn.classList.toggle('active', isActive);
+                        btn.classList.toggle('btn-primary', isActive);
+                        btn.classList.toggle('btn-outline-primary', !isActive);
+                    });
+
+                    if (history.replaceState) {
+                        history.replaceState(null, '', category === 'all' ? location.pathname : '#cat-' + category);
+                    }
+                }
+
+                buttons.forEach(function (btn) {
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        applyFilter(btn.getAttribute('data-category'));
+                    });
+                });
+
+                var hashMatch = location.hash.match(/^#cat-(\w+)$/);
+                applyFilter(hashMatch ? hashMatch[1] : 'all');
+            })();
+        </script>
 
         <!-- Tour Booking Start -->
         <div class="container-fluid booking py-5">

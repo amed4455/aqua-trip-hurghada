@@ -342,13 +342,13 @@
                     <h5 class="section-title px-3"><i class="ri-add-fill me-2"></i>Tours</h5>
                     <h1 class="mb-0">Choose our tours and enjoy them now!</h1>
                 </div>
-                <div class="d-flex flex-wrap justify-content-center tour-choose-nav">
-                    <a href="tour.html" class="tour-card active">
+                <div class="d-flex flex-wrap justify-content-center tour-choose-nav" id="tourChooseNav">
+                    <a href="packages.html#cat-island" class="tour-card active" data-category="island">
                         <span class="tour-card-badge">01</span>
                         <span class="tour-card-icon"><i class="ri-ship-fill"></i></span>
                         <span class="tour-card-label">Island getaways</span>
                     </a>
-                    <a href="tour.html" class="tour-card">
+                    <a href="packages.html#cat-freediving" class="tour-card" data-category="freediving">
                         <span class="tour-card-badge">02</span>
                         <span class="tour-card-icon"><i class="ri-drop-fill"></i></span>
                         <span class="tour-card-label">Freediving</span>
@@ -402,8 +402,8 @@
                     <h5 class="section-title px-3"><i class="ri-add-fill me-2"></i>Featured Tours</h5>
                     <h1 class="mb-0">Most favorite touring location</h1>
                 </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6">
+                <div class="row g-4" id="featuredToursGrid">
+                    <div class="col-lg-4 col-md-6 featured-tour-item" data-category="all">
                         <div class="tour-offer-card">
                             <div class="tour-offer-img aqua-trip-story"><img src="img/aqua-trip-fees-card.png" alt="Aqua Trip Hurghada" class="aqua-trip-story-card"></div>
                             <div class="tour-offer-body">
@@ -416,7 +416,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 featured-tour-item" data-category="island">
                         <div class="tour-offer-card">
                             <div class="tour-offer-img"><img src="img/explore-tour-5.jpg" alt="Mahmya Island: Red Sea Sailing Experience"></div>
                             <div class="tour-offer-body">
@@ -429,7 +429,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 featured-tour-item" data-category="freediving">
                         <div class="tour-offer-card">
                             <div class="tour-offer-img"><img src="img/explore-tour-2.jpg" alt="Hurghada: Underwater cruise aboard the Royal Seascope with a snorkeling stop"></div>
                             <div class="tour-offer-body">
@@ -442,7 +442,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 featured-tour-item" data-category="island">
                         <div class="tour-offer-card">
                             <div class="tour-offer-img"><img src="img/destination-6.jpg" alt="Hurghada: Boat trip to Orange Bay Island with breakfast and lunch"></div>
                             <div class="tour-offer-body">
@@ -455,7 +455,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 featured-tour-item" data-category="all">
                         <div class="tour-offer-card">
                             <div class="tour-offer-img"><img src="img/destination-4.jpg" alt="Hurghada: Jeep Safari, Quad Biking, Buggy Tour, Camel Ride and Barbecue Dinner"></div>
                             <div class="tour-offer-body">
@@ -468,7 +468,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 featured-tour-item" data-category="freediving">
                         <div class="tour-offer-card">
                             <div class="tour-offer-img"><img src="img/gallery-1.jpg" alt="Hurghada: Dolphin World show with walruses and pickup trucks"></div>
                             <div class="tour-offer-body">
@@ -511,6 +511,32 @@
             .tour-offer-price { font-weight: 700; font-size: 1.2rem; color: var(--bs-dark); }
         </style>
         <!-- Featured Tours End -->
+
+        <script>
+            (function () {
+                var navLinks = document.querySelectorAll('#tourChooseNav [data-category]');
+                var items = document.querySelectorAll('#featuredToursGrid .featured-tour-item');
+
+                function applyFilter(category) {
+                    items.forEach(function (item) {
+                        var itemCategory = item.getAttribute('data-category');
+                        var match = itemCategory === 'all' || itemCategory === category;
+                        item.classList.toggle('d-none', !match);
+                    });
+                    navLinks.forEach(function (link) {
+                        link.classList.toggle('active', link.getAttribute('data-category') === category);
+                    });
+                }
+
+                navLinks.forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        applyFilter(link.getAttribute('data-category'));
+                        document.getElementById('blog').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                });
+            })();
+        </script>
 
         <!-- Transfer Fees Info Start -->
         <div class="container-fluid py-5">
