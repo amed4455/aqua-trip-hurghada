@@ -57,6 +57,6 @@ ready
     }
   })
   .catch((err) => {
-    console.error('فشل الاتصال بقاعدة بيانات MySQL — تأكد من إعدادات DB_HOST/DB_USER/DB_PASSWORD/DB_NAME في .env:', err.message);
+    console.error('فشل الاتصال بقاعدة بيانات Postgres (Supabase) — تأكد من إعداد DATABASE_URL في .env:', err.message);
     process.exit(1);
   });

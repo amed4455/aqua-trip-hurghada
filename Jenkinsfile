@@ -4,6 +4,7 @@ pipeline {
     options {
         timestamps()
         disableConcurrentBuilds()
+        timeout(time: 20, unit: 'MINUTES')
     }
 
     stages {
@@ -44,8 +45,8 @@ pipeline {
         stage('Deploy') {
             when {
                 expression {
-                    def branch = env.BRANCH_NAME ?: env.GIT_BRANCH ?: ''
-                    return branch.endsWith('master')
+                    def branch = (env.BRANCH_NAME ?: env.GIT_BRANCH ?: '').replaceFirst(/^origin\//, '')
+                    return branch == 'master'
                 }
             }
             steps {

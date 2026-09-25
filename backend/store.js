@@ -3,7 +3,7 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: true },
 });
 
 // بينشئ الجداول أول مرة بس لو مش موجودة، من غير ما يلمس بيانات موجودة
@@ -53,7 +53,8 @@ async function init() {
   `);
 }
 
-const readyPromise = init();
+let readyPromise = init();
+readyPromise.catch(() => {}); // بيتم التعامل مع الخطأ الفعلي في waitReady()/server.js، السطر ده بس بيمنع unhandled rejection warning
 
 function rowToUser(row) {
   if (!row) return null;
@@ -80,6 +81,18 @@ function rowToCode(row) {
 
 module.exports = {
   ready: readyPromise,
+
+  // زي ready بس بيعيد المحاولة تلقائي في الطلب الجاي لو المحاولة اللي قبله فشلت
+  // (مهم في serverless: instance دافئ ممكن يفضل عالق على وعد مرفوض للأبد من غير ده)
+  async waitReady() {
+    try {
+      await readyPromise;
+    } catch (err) {
+      readyPromise = init();
+      readyPromise.catch(() => {});
+      throw err;
+    }
+  },
 
   async getUser(email) {
     const { rows } = await pool.query('SELECT * FROM users WHERE email = $1', [email]);

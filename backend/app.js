@@ -15,4 +15,4 @@ function errorHandler(err, req, res, next) {
   res.status(500).json({ error: 'server_error' });
 }
 
-module.exports = { app, ready: store.ready, errorHandler };
+module.exports = { app, ready: store.ready, waitReady: () => store.waitReady(), errorHandler };
