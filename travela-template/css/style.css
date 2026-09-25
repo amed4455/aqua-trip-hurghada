@@ -127,7 +127,7 @@ body.device-preview-open .back-to-top {
     text-align: left;
     cursor: pointer;
     color: #14141F;
-    font-family: "Roboto", sans-serif;
+    font-family: "Figtree", sans-serif;
 }
 
 .lang-menu button:hover {
@@ -349,7 +349,7 @@ body.device-preview-open .back-to-top {
 
 /*** Navbar ***/
 .navbar-light .navbar-nav .nav-link {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Figtree', sans-serif;
     position: relative;
     padding: 35px 15px;
     color: var(--bs-white) !important;
@@ -900,7 +900,7 @@ body.device-preview-open .back-to-top {
 
 .mh-code-big {
     text-align: center;
-    font-family: "Jost", sans-serif;
+    font-family: "Bricolage Grotesque", sans-serif;
     font-size: 2.2rem;
     letter-spacing: 3px;
     color: var(--bs-primary);
